@@ -46,5 +46,7 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-confusing-void-expression": "off",
     "turbo/no-undeclared-env-vars": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/naming-convention": "off",
   },
 };

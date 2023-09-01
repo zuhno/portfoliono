@@ -6,7 +6,11 @@ export const metadata: Metadata = {
   description: "2023 Portfolio by cuttleman",
 };
 
-export default function RootLayout({ children }: React.PropsWithChildren) {
+interface IProps {}
+
+export default function RootLayout({
+  children,
+}: React.PropsWithChildren<IProps>) {
   console.log(process.env.ENV);
   return (
     <html lang="ko">

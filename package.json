@@ -2,7 +2,8 @@
   "name": "portfolio",
   "private": true,
   "scripts": {
-    "2023": "pnpm -F 2023",
+    "2019": "cd apps/2019 && pnpm",
+    "2023": "cd apps/2023 && pnpm",
     "clean": "rm -rf node_modules && rm -rf */**/node_modules",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
