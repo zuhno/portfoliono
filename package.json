@@ -1,17 +1,21 @@
 {
+  "name": "portfolio",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
+    "2023": "pnpm -F 2023",
+    "clean": "rm -rf node_modules && rm -rf */**/node_modules",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
     "tsconfig": "workspace:*",
     "turbo": "latest"
   },
   "packageManager": "pnpm@8.6.10",
-  "name": "portfolio"
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }

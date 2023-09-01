@@ -20,6 +20,7 @@ module.exports = {
     "@vercel/style-guide/eslint/next",
     "eslint-config-turbo",
   ].map(require.resolve),
+  root: true,
   parserOptions: {
     project,
   },
@@ -38,5 +39,12 @@ module.exports = {
   // add rules configurations here
   rules: {
     "import/no-default-export": "off",
+    "no-console": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-unnecessary-condition": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-confusing-void-expression": "off",
+    "turbo/no-undeclared-env-vars": "off",
   },
 };

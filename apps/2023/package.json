@@ -1,0 +1,28 @@
+{
+  "name": "2023",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "env-type": "node scripts/env-type.js",
+    "dev": "pnpm env-type && dotenv -e .env.dev -- next dev",
+    "prod": "pnpm env-type && dotenv -e .env.prod -- next dev",
+    "build": "pnpm env-type && dotenv -e .env.prod -- next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "13.4.19",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^13.4.19",
+    "@types/node": "20.5.7",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "eslint-config-custom": "workspace:*",
+    "sass": "^1.66.1",
+    "tsconfig": "workspace:*",
+    "typescript": "5.2.2"
+  }
+}
