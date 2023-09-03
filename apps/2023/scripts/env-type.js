@@ -34,9 +34,7 @@ const main = async () => {
     "dev and prod environments have mismatched size."
   );
   _conditionalExit(
-    !envDevKeys.every(
-      (k) => typeof k === "string" && k !== "" && !k.includes("=")
-    ),
+    !envDevKeys.every((k) => typeof k === "string" && k !== "" && !k.includes("=")),
     "invalid environment keys."
   );
 

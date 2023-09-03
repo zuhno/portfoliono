@@ -1,7 +1,7 @@
 Todos:
   Setup:
-    ☐ prettier
-    ☐ husky
+    ✔ prettier @done(23-09-04 00:52)
+    ✔ husky @done(23-09-04 00:52)
     ✔ existing CI/CD inactive @done(23-09-03 22:28)
     ✔ github action for deploy to vercel (2019 project) @done(23-09-03 22:28)
   

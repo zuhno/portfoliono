@@ -11,9 +11,5 @@ const Img = styled.img`
 `;
 
 export default function Icon({ name }: { name: string }) {
-  return (
-    <Img
-      src={`https://mestuss.github.io/images-fonts/images/portfolio/icon/${name}.png`}
-    />
-  );
+  return <Img src={`https://mestuss.github.io/images-fonts/images/portfolio/icon/${name}.png`} />;
 }
