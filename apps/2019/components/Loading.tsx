@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+
 import CurveWave from "../canvasItems/CurveWave";
 
 const CanvasS = styled.canvas`
@@ -9,7 +10,7 @@ const CanvasS = styled.canvas`
   z-index: 999;
 `;
 
-export default function Loading({ setLoading }: { setLoading: any }) {
+export default function Loading({ setLoading }: { setLoading: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   let canvas: HTMLCanvasElement | null;
   let ctx: CanvasRenderingContext2D | null | undefined;
@@ -47,12 +48,7 @@ export default function Loading({ setLoading }: { setLoading: any }) {
         ctx.beginPath();
         ctx.font = "30px Nanum Gothic";
         ctx.fillStyle = "#ffffff";
-        ctx.fillText(
-          "Loading...",
-          ctx.canvas.width / 2 - 60,
-          ctx.canvas.height / 2,
-          120
-        );
+        ctx.fillText("Loading...", ctx.canvas.width / 2 - 60, ctx.canvas.height / 2, 120);
         ctx.closePath();
       }
     }
@@ -62,14 +58,7 @@ export default function Loading({ setLoading }: { setLoading: any }) {
         wetSand.init(ctx.canvas.height / 1.5 - 15, 70, 1, WETSAND, ctx);
         bubble.init(ctx.canvas.height / 1.5 - 8, 80, 3, BUBBLE, ctx);
         darkSea.init(ctx.canvas.height / 1.5 - 3, 130, 3, DARKSEA, ctx);
-        lightSea.init(
-          ctx.canvas.height / 1.5,
-          90,
-          2,
-          LIGHTSEA,
-          ctx,
-          setLoading
-        );
+        lightSea.init(ctx.canvas.height / 1.5, 90, 2, LIGHTSEA, ctx, setLoading);
       }
     }
 

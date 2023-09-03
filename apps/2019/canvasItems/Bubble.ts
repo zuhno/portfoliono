@@ -1,5 +1,6 @@
 import { randomGenerator } from "../utils";
-import User from "./User";
+
+import type User from "./User";
 
 export default class Bubble {
   private _goalSize: number;
@@ -86,10 +87,7 @@ export default class Bubble {
           this._user.getState().viewport.x,
           this._user.getState().viewport.x + this._ctx.canvas.width
         );
-        this._y = randomGenerator(
-          this._ctx.canvas.height / 1.05,
-          this._ctx.canvas.height / 1.2
-        );
+        this._y = randomGenerator(this._ctx.canvas.height / 1.05, this._ctx.canvas.height / 1.2);
         this._dy = randomGenerator(1, 3);
       } else {
         if (this._goalSize < this._initSize) {

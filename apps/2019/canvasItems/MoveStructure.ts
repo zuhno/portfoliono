@@ -1,10 +1,12 @@
-import { CanvasState } from "myTypes";
 import { randomGenerator } from "../utils";
+
 import Info from "./Info";
-import User from "./User";
+
+import type User from "./User";
+import type { CanvasState } from "myTypes";
 
 export default class MoveStructure extends Info {
-  private _img: any;
+  private _img: CanvasImageSource | null;
   private _leftImgId: string;
   private _rightImgId: string;
   private _tickCount: number;
@@ -100,7 +102,7 @@ export default class MoveStructure extends Info {
   }
 
   private _draw() {
-    if (this._ctx) {
+    if (this._ctx && this._img) {
       this._size = this._ctx.canvas.height / 20;
       this._ctx.beginPath();
       this._ctx.drawImage(
@@ -133,9 +135,9 @@ export default class MoveStructure extends Info {
     this._y += this._dy;
 
     if (this._dx > 0) {
-      this._img = document.getElementById(this._rightImgId);
+      this._img = document.getElementById(this._rightImgId) as CanvasImageSource;
     } else {
-      this._img = document.getElementById(this._leftImgId);
+      this._img = document.getElementById(this._leftImgId) as CanvasImageSource;
     }
     this._draw();
     this._getDistance();

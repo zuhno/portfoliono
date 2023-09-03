@@ -1,4 +1,5 @@
 import "@common/styles/globals.scss";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,9 +9,7 @@ export const metadata: Metadata = {
 
 interface IProps {}
 
-export default function RootLayout({
-  children,
-}: React.PropsWithChildren<IProps>) {
+export default function RootLayout({ children }: React.PropsWithChildren<IProps>) {
   console.log(process.env.ENV);
   return (
     <html lang="ko">

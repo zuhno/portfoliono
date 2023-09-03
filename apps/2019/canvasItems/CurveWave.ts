@@ -85,7 +85,7 @@ export default class CurveLine {
 
   public update() {
     if (this._p1.y - this._pullUp - 5 < this._gY - this._maxY) {
-      this._dy = +this._initDY;
+      this._dy = this._initDY;
     } else if (this._p1.y - this._pullUp + 5 > this._gY + this._maxY) {
       this._dy = -this._initDY;
     }

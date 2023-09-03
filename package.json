@@ -5,15 +5,20 @@
     "2019": "cd apps/2019 && pnpm",
     "2023": "cd apps/2023 && pnpm",
     "clean": "rm -rf node_modules && rm -rf */**/node_modules",
+    "build": "turbo run build",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write ."
   },
   "devDependencies": {
     "dotenv-cli": "^7.3.0",
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
     "tsconfig": "workspace:*",
-    "turbo": "latest"
+    "turbo": "latest",
+    "husky": "^8.0.0"
   },
   "packageManager": "pnpm@7.22.0",
   "dependencies": {

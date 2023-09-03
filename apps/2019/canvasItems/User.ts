@@ -1,9 +1,9 @@
-import { CanvasState } from "myTypes";
+import type { CanvasState } from "myTypes";
 
 export default class User {
   private _x: number;
   private _y: number;
-  private _myImg: any;
+  private _myImg: CanvasImageSource | null;
   private _size: number; // target size;
   private _viewport: { x: number; y: number }; // screen visibled user
   private _imgIndex: number;
@@ -34,17 +34,11 @@ export default class User {
     if (this._ctx) {
       if (this._x - this._size < 0 + this._viewport.x) {
         this._x = this._size + this._viewport.x;
-      } else if (
-        this._x + this._size >
-        this._ctx.canvas.width + this._viewport.x
-      ) {
+      } else if (this._x + this._size > this._ctx.canvas.width + this._viewport.x) {
         this._x = this._ctx.canvas.width + this._viewport.x - this._size;
       } else if (this._y - this._size < 0 + this._viewport.y) {
         this._y = this._size + this._viewport.y;
-      } else if (
-        this._y + this._size >
-        this._ctx.canvas.height + this._viewport.y
-      ) {
+      } else if (this._y + this._size > this._ctx.canvas.height + this._viewport.y) {
         this._y = this._ctx.canvas.height + this._viewport.y - this._size;
       }
     }
@@ -98,11 +92,11 @@ export default class User {
         break;
       case "ArrowRight": // right
         this._x += 30;
-        this._myImg = document.getElementById("myImgRight");
+        this._myImg = document.getElementById("myImgRight") as CanvasImageSource;
         break;
       case "ArrowLeft": // left
         this._x -= 30;
-        this._myImg = document.getElementById("myImgLeft");
+        this._myImg = document.getElementById("myImgLeft") as CanvasImageSource;
         break;
       default:
         break;
@@ -136,7 +130,7 @@ export default class User {
     this._x = x;
     this._y = y;
     this._ctx = ctx;
-    this._myImg = document.getElementById("myImgLeft");
+    this._myImg = document.getElementById("myImgLeft") as CanvasImageSource;
     this._viewport = viewport;
     if (ctx) {
       ctx.translate(-viewport.x, -viewport.y);

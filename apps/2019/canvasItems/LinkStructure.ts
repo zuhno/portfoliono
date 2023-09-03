@@ -1,5 +1,6 @@
 import Structure from "./Structure";
-import User from "./User";
+
+import type User from "./User";
 
 export default class LinkStructure extends Structure {
   private _link?: string;
@@ -31,22 +32,13 @@ export default class LinkStructure extends Structure {
       this._ctx.beginPath();
       this._ctx.lineWidth = 5;
       this._ctx.lineJoin = "round";
-      this._ctx.moveTo(
-        this._x - this._size + viewSize / 2 - viewSize / 15,
-        this._y - this._size
-      );
-      this._ctx.lineTo(
-        this._x - this._size + viewSize / 2 + viewSize / 15,
-        this._y - this._size
-      );
+      this._ctx.moveTo(this._x - this._size + viewSize / 2 - viewSize / 15, this._y - this._size);
+      this._ctx.lineTo(this._x - this._size + viewSize / 2 + viewSize / 15, this._y - this._size);
       this._ctx.lineTo(
         this._x - this._size + viewSize / 2,
         this._y - this._size - (Math.sqrt(3) / 2) * ((viewSize / 15) * 2)
       );
-      this._ctx.lineTo(
-        this._x - this._size + viewSize / 2 - viewSize / 15,
-        this._y - this._size
-      );
+      this._ctx.lineTo(this._x - this._size + viewSize / 2 - viewSize / 15, this._y - this._size);
       this._ctx.strokeStyle = "#aaa69d";
       this._ctx.stroke();
       this._ctx.closePath();
@@ -70,12 +62,7 @@ export default class LinkStructure extends Structure {
       // photo frame
       this._ctx.beginPath();
       this._ctx.lineWidth = this._isContact ? 5 : 2;
-      this._ctx.rect(
-        this._x - this._size,
-        this._y - this._size,
-        viewSize,
-        viewSize
-      );
+      this._ctx.rect(this._x - this._size, this._y - this._size, viewSize, viewSize);
       this._ctx.fillStyle = pattern || "";
       this._ctx.fill();
       this._ctx.strokeStyle = this._isContact ? "#ffffff" : "#000000";
@@ -114,9 +101,7 @@ export default class LinkStructure extends Structure {
           features: "",
         };
         if (this._type === "kakaoUi" || this._type === "popcornTime") {
-          params.features = `width=${window.innerWidth / 4}, height=${
-            window.innerHeight / 1.2
-          }`;
+          params.features = `width=${window.innerWidth / 4}, height=${window.innerHeight / 1.2}`;
         }
         window.open(this._link, params.target, params.features);
       }

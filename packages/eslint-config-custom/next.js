@@ -28,6 +28,7 @@ module.exports = {
     React: true,
     JSX: true,
   },
+  ignorePatterns: [".eslintrc.js"],
   settings: {
     "import/resolver": {
       typescript: {
@@ -40,6 +41,8 @@ module.exports = {
   rules: {
     "import/no-default-export": "off",
     "no-console": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unnecessary-condition": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
@@ -48,5 +51,35 @@ module.exports = {
     "turbo/no-undeclared-env-vars": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/naming-convention": "off",
+    "unicorn/filename-case": "off",
+    "no-nested-ternary": "off",
+    "import/no-extraneous-dependencies": [
+      "warn",
+      {
+        devDependencies: false,
+        includeInternal: false,
+        includeTypes: false,
+        packageDir: [".", "../.."],
+      },
+    ],
+    "import/order": [
+      "error",
+      {
+        groups: [
+          ["builtin", "external"],
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type",
+        ],
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+        "newlines-between": "always",
+      },
+    ],
   },
 };

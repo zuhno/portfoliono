@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Loading from "../components/Loading";
 import dynamic from "next/dynamic";
+import React, { useState } from "react";
+
+import Loading from "../components/Loading";
 
 const DynamicMain = dynamic(() => import("./Main"), { ssr: false }) as any;
 

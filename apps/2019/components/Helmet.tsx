@@ -1,16 +1,20 @@
-import { Common } from "myTypes";
 import Head from "next/head";
 
-const Helmet: React.FC<Common.HelmetProps> = ({ title }) => (
-  <Head>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>{title} | Under the Sea</title>
-    <meta name="description" content="my portfolio" />
-    <link rel="icon" href="/favicon.ico" />
-  </Head>
-);
+import type { Common } from "myTypes";
+
+function Helmet({ title }: Common.HelmetProps) {
+  return (
+    <Head>
+      {/* eslint-disable-next-line @next/next/no-page-custom-font -- . */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap"
+        rel="stylesheet"
+      />
+      <title>{title} | Under the Sea</title>
+      <meta content="my portfolio" name="description" />
+      <link href="/favicon.ico" rel="icon" />
+    </Head>
+  );
+}
 
 export default Helmet;

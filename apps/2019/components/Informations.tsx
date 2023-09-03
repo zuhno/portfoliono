@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import Icon from "./Icon";
 
 const RootContainer = styled.div``;
@@ -88,17 +89,10 @@ export default function Informations() {
           <Summary>
             <SummaryItem>BEM 기준으로 HTML을 작성함.</SummaryItem>
             <SummaryItem>카카오톡 UI을 클론코딩함.</SummaryItem>
-            <SummaryItem>
-              첫 코딩 결과물로 내 프로그래밍 인생에 Hello World임.
-            </SummaryItem>
-            <SummaryItem>
-              이 프로젝트에서 HTML, CSS의 사용법을 익힘.
-            </SummaryItem>
+            <SummaryItem>첫 코딩 결과물로 내 프로그래밍 인생에 Hello World임.</SummaryItem>
+            <SummaryItem>이 프로젝트에서 HTML, CSS의 사용법을 익힘.</SummaryItem>
           </Summary>
-          <GLink
-            href="https://github.com/nomad-learn/clone-kakaotalk"
-            target="_blank"
-          >
+          <GLink href="https://github.com/nomad-learn/clone-kakaotalk" target="_blank">
             Github link
           </GLink>
         </Content>
@@ -118,22 +112,16 @@ export default function Informations() {
           </Spec>
           <Summary>
             <SummaryItem>Node + Express로 서버 구성.</SummaryItem>
+            <SummaryItem>비디오 업로드, 삭제, 수정, 읽기로 CRUD 구현.</SummaryItem>
             <SummaryItem>
-              비디오 업로드, 삭제, 수정, 읽기로 CRUD 구현.
+              MongoDB를 DB로 사용하고 사진, 비디오는 Google Cloud Storage를 사용함.
             </SummaryItem>
             <SummaryItem>
-              MongoDB를 DB로 사용하고 사진, 비디오는 Google Cloud Storage를
-              사용함.
-            </SummaryItem>
-            <SummaryItem>
-              AWS S3 스토리지를 사용하다가 알게모르게 지갑에 구멍이
-              생겨버림.(AWS의 무서움을 느끼게 되었다는..)
+              AWS S3 스토리지를 사용하다가 알게모르게 지갑에 구멍이 생겨버림.(AWS의 무서움을 느끼게
+              되었다는..)
             </SummaryItem>
           </Summary>
-          <GLink
-            href="https://github.com/nomad-learn/clone-youtube"
-            target="_blank"
-          >
+          <GLink href="https://github.com/nomad-learn/clone-youtube" target="_blank">
             Github link
           </GLink>
         </Content>
@@ -150,10 +138,7 @@ export default function Informations() {
             <SummaryItem>TMDB api로 데이터를 받아와서 뿌려줌.</SummaryItem>
             <SummaryItem>리액트에서 데이터를 다루는 방식을 배움.</SummaryItem>
           </Summary>
-          <GLink
-            href="https://github.com/nomad-learn/clone-nomflix"
-            target="_blank"
-          >
+          <GLink href="https://github.com/nomad-learn/clone-nomflix" target="_blank">
             Github link
           </GLink>
         </Content>
@@ -168,17 +153,10 @@ export default function Informations() {
           </Spec>
           <Summary>
             <SummaryItem>TMDB api를 사용함.</SummaryItem>
-            <SummaryItem>
-              스크린 컴포넌트들은 Container-presenter 패턴으로 작성함.
-            </SummaryItem>
-            <SummaryItem>
-              Expo platform 으로 ios-android-web에서 동작하게 만듬.
-            </SummaryItem>
+            <SummaryItem>스크린 컴포넌트들은 Container-presenter 패턴으로 작성함.</SummaryItem>
+            <SummaryItem>Expo platform 으로 ios-android-web에서 동작하게 만듬.</SummaryItem>
           </Summary>
-          <GLink
-            href="https://github.com/nomad-learn/clone-popcorntime"
-            target="_blank"
-          >
+          <GLink href="https://github.com/nomad-learn/clone-popcorntime" target="_blank">
             Github link
           </GLink>
         </Content>
@@ -197,12 +175,8 @@ export default function Informations() {
             <SummaryItem>나의 첫 외주 프로젝트.</SummaryItem>
             <SummaryItem>받은 디자인을 토대로 UI를 만듬.</SummaryItem>
             <SummaryItem>구글 애널리틱스로 트래픽 추적함.</SummaryItem>
-            <SummaryItem>
-              비용관리의 어려움으로 국내 호스팅업체 닷홈을 이용함.
-            </SummaryItem>
-            <SummaryItem>
-              20.06 ~ 20.07 51만 트래픽을 달성함.(아주 만족했음)
-            </SummaryItem>
+            <SummaryItem>비용관리의 어려움으로 국내 호스팅업체 닷홈을 이용함.</SummaryItem>
+            <SummaryItem>20.06 ~ 20.07 51만 트래픽을 달성함.(아주 만족했음)</SummaryItem>
             <SummaryItem>처음으로 도메인을 닮.</SummaryItem>
           </Summary>
         </Content>
@@ -218,16 +192,12 @@ export default function Informations() {
             <Icon name="firebase" />
           </Spec>
           <Summary>
+            <SummaryItem>관태기웹 흥행으로 같은 업체에서 다시 외주를 받음.</SummaryItem>
             <SummaryItem>
-              관태기웹 흥행으로 같은 업체에서 다시 외주를 받음.
+              같은 프레임으로 만든거라서 어렵진 않았지만 이미지 요소가 많아서 반응형으로 만드는데
+              힘들었음.
             </SummaryItem>
-            <SummaryItem>
-              같은 프레임으로 만든거라서 어렵진 않았지만 이미지 요소가 많아서
-              반응형으로 만드는데 힘들었음.
-            </SummaryItem>
-            <SummaryItem>
-              Firebase 서비스 이용.(hosting, firestore DB)
-            </SummaryItem>
+            <SummaryItem>Firebase 서비스 이용.(hosting, firestore DB)</SummaryItem>
             <SummaryItem>흥행 대실패😥</SummaryItem>
           </Summary>
         </Content>
@@ -249,19 +219,13 @@ export default function Informations() {
           <Summary>
             <SummaryItem>영어 단어장 앱.(안드로이드)</SummaryItem>
             <SummaryItem>
-              구글 이미지, 앨범, 사진촬영등으로 단어에 맞는 이미지를 골라 저장할
-              수 있음.
+              구글 이미지, 앨범, 사진촬영등으로 단어에 맞는 이미지를 골라 저장할 수 있음.
             </SummaryItem>
-            <SummaryItem>
-              미드 쉐도잉하는데 단어가 안외워져서 만들게됨.
-            </SummaryItem>
+            <SummaryItem>미드 쉐도잉하는데 단어가 안외워져서 만들게됨.</SummaryItem>
             <SummaryItem>구상하고 출시하는데까지 약 6개월 걸림.</SummaryItem>
             <SummaryItem>간단한 구글이미지 스크랩핑 api 만듦.</SummaryItem>
           </Summary>
-          <GLink
-            href="https://github.com/mestuss/wordusink-app"
-            target="_blank"
-          >
+          <GLink href="https://github.com/mestuss/wordusink-app" target="_blank">
             Github link
           </GLink>
         </Content>
@@ -281,9 +245,7 @@ export default function Informations() {
             <SummaryItem>
               서비스 사이트에서 원하는 UI를 클릭하면 해당 HTML코드가 복사됨.
             </SummaryItem>
-            <SummaryItem>
-              카드, 버튼 요소를 매번 만드는게 귀찮아서 만들게 됨.
-            </SummaryItem>
+            <SummaryItem>카드, 버튼 요소를 매번 만드는게 귀찮아서 만들게 됨.</SummaryItem>
             <SummaryItem>
               리액트 플러그인으로 교체 예정.(리액트를 사용하다보니.. 안쓰게 됨)
             </SummaryItem>
@@ -308,11 +270,9 @@ export default function Informations() {
           <Summary>
             <SummaryItem>캐치마인드 게임.</SummaryItem>
             <SummaryItem>
-              노마드 강의 'Node JS로 리얼타임 게임만들기' 에 추가기능을 얹음.
+              노마드 강의 &apos;Node JS로 리얼타임 게임만들기&apos; 에 추가기능을 얹음.
             </SummaryItem>
-            <SummaryItem>
-              socket 연결해서 canvas에 그려진 그림을 유저들끼리 공유함.
-            </SummaryItem>
+            <SummaryItem>socket 연결해서 canvas에 그려진 그림을 유저들끼리 공유함.</SummaryItem>
             <SummaryItem>채팅, 타이머, 색상선택 기능 추가</SummaryItem>
             <SummaryItem>NodeJS + SocketIo</SummaryItem>
           </Summary>
@@ -331,8 +291,8 @@ export default function Informations() {
             자바스크립트를 좋아합니다.
             <br />
             <br />
-            Canvas에 관심이 생겨 유튜버 Interactive Developer님 영상과 Cris
-            Courses 웹사이트 강의로 공부 하고 있습니다.
+            Canvas에 관심이 생겨 유튜버 Interactive Developer님 영상과 Cris Courses 웹사이트 강의로
+            공부 하고 있습니다.
             <br />
             개인적인 공부는 Nomad Coders 강의와 구글링을 통해서 하고 있고,
             <br />
@@ -343,8 +303,8 @@ export default function Informations() {
             <br />
             컴퓨터 시스템에 대해 이해를 높이기 위해 C++ 공부하고있습니다.
             <br />
-            (solo learn 앱으로 맛보는 중, 문법파트 넘어가면 '씹어먹는 C++ 강좌'
-            학습할 예정)
+            (solo learn 앱으로 맛보는 중, 문법파트 넘어가면 &apos;씹어먹는 C++ 강좌&apos; 학습할
+            예정)
             <br />
             <br />
             관심 분야는 교육관련 앱, 웹 개발 및 소셜커머스 앱, 웹 개발 입니다.

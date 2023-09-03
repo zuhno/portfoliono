@@ -1,7 +1,8 @@
-import User from "./User";
 import Structure from "./Structure";
 
-export default class Rock extends Structure {
+import type User from "./User";
+
+export default class RisingStructure extends Structure {
   private _dx: number;
   private _dy: number;
   private _link?: string;
@@ -34,10 +35,10 @@ export default class Rock extends Structure {
       );
       if (targetDistance <= this._user.getState().size + this._size) {
         this._isContact = true;
-        this._structureImg = document.getElementById(`${this._imgId}Focus`);
+        this._structureImg = document.getElementById(`${this._imgId}Focus`) as CanvasImageSource;
       } else {
         this._isContact = false;
-        this._structureImg = document.getElementById(`${this._imgId}`);
+        this._structureImg = document.getElementById(`${this._imgId}`) as CanvasImageSource;
         this._hideInfo();
       }
     }
@@ -69,9 +70,7 @@ export default class Rock extends Structure {
         this._vibration();
         if (
           this._y >
-          this._ctx.canvas.height +
-            this._ctx.canvas.height -
-            this._ctx.canvas.width / 2
+          this._ctx.canvas.height + this._ctx.canvas.height - this._ctx.canvas.width / 2
         ) {
           this._y -= this._dy;
           this._x += this._dx;

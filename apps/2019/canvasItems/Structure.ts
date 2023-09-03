@@ -1,6 +1,7 @@
-import { CanvasState } from "myTypes";
 import Info from "./Info";
-import User from "./User";
+
+import type User from "./User";
+import type { CanvasState } from "myTypes";
 
 export default class Structure extends Info {
   protected _x: number; // target position x axis
@@ -8,7 +9,7 @@ export default class Structure extends Info {
   protected _imgId: string;
   protected _type: string;
   protected _ctx: CanvasRenderingContext2D | null;
-  protected _structureImg: any;
+  protected _structureImg: CanvasImageSource | null;
   protected _isContact: boolean;
   protected _size: number; // structure size: ;
   protected _user: User | null;
@@ -40,10 +41,10 @@ export default class Structure extends Info {
       );
       if (targetDistance <= this._user.getState().size + this._size) {
         this._isContact = true;
-        this._structureImg = document.getElementById(`${this._imgId}Focus`);
+        this._structureImg = document.getElementById(`${this._imgId}Focus`) as CanvasImageSource;
       } else {
         this._isContact = false;
-        this._structureImg = document.getElementById(`${this._imgId}`);
+        this._structureImg = document.getElementById(`${this._imgId}`) as CanvasImageSource;
         this._hideInfo();
       }
     }

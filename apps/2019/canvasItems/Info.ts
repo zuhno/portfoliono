@@ -1,4 +1,4 @@
-import User from "./User";
+import type User from "./User";
 
 export default class Info {
   private _wInfo: number;
@@ -100,11 +100,7 @@ export default class Info {
     this._isVisible = false;
   }
 
-  protected _initInfo(
-    user: User,
-    ctx: CanvasRenderingContext2D | null,
-    type: string
-  ) {
+  protected _initInfo(user: User, ctx: CanvasRenderingContext2D | null, type: string) {
     this._userInfo = user;
     this._ctxInfo = ctx;
     this._textInfoEl = document.getElementById(`${type}Info`);

@@ -1,0 +1,12 @@
+.github
+.husky
+**/.next
+.prettierignore
+**/.env*
+**/public/*
+**/node_modules
+**/.gitignore
+**/pnpm-*
+**/*.svg
+**/*.png
+_todos

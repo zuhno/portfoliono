@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+
 import { keydownHandler } from "../utils";
+
+import type MoveStructure from "../canvasItems/MoveStructure";
+import type RisingStructure from "../canvasItems/RisingStructure";
+import type Structure from "../canvasItems/Structure";
+import type User from "../canvasItems/User";
+import type { CanvasState } from "myTypes";
 
 const Container = styled.div`
   position: fixed;
@@ -47,7 +54,15 @@ const Description = styled.div`
   }
 `;
 
-export default function KeyBoard({ user, changeTitle, structures }: any) {
+export default function KeyBoard({
+  user,
+  changeTitle,
+  structures,
+}: {
+  user: User;
+  changeTitle: CanvasState.setTitleFn;
+  structures: (MoveStructure | Structure | RisingStructure)[];
+}) {
   const initValue = {
     space: false,
     enter: false,
@@ -59,7 +74,7 @@ export default function KeyBoard({ user, changeTitle, structures }: any) {
   const [pressed, setPressed] = useState(initValue);
 
   const clickHandler = (type: string) => {
-    keydownHandler(user, changeTitle, structures)({ code: type } as any);
+    keydownHandler(user, changeTitle, structures)({ code: type } as KeyboardEvent);
   };
 
   useEffect(() => {
@@ -115,10 +130,7 @@ export default function KeyBoard({ user, changeTitle, structures }: any) {
       </Content>
       <Content>
         <Description>오른쪽으로 이동</Description>
-        <Key
-          isPressed={pressed.right}
-          onClick={() => clickHandler("ArrowRight")}
-        >
+        <Key isPressed={pressed.right} onClick={() => clickHandler("ArrowRight")}>
           R
         </Key>
       </Content>
@@ -130,10 +142,7 @@ export default function KeyBoard({ user, changeTitle, structures }: any) {
       </Content>
       <Content>
         <Description>아래쪽으로 이동</Description>
-        <Key
-          isPressed={pressed.bottom}
-          onClick={() => clickHandler("ArrowDown")}
-        >
+        <Key isPressed={pressed.bottom} onClick={() => clickHandler("ArrowDown")}>
           D
         </Key>
       </Content>

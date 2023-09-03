@@ -1,15 +1,18 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
-import User from "../canvasItems/User";
-import Structure from "../canvasItems/Structure";
-import MoveStructure from "../canvasItems/MoveStructure";
+
 import Bubble from "../canvasItems/Bubble";
-import { keydownHandler, randomGenerator, resizeHandler } from "../utils";
 import LinkStructure from "../canvasItems/LinkStructure";
+import MoveStructure from "../canvasItems/MoveStructure";
 import RisingStructure from "../canvasItems/RisingStructure";
+import Structure from "../canvasItems/Structure";
+import User from "../canvasItems/User";
+import { keydownHandler, randomGenerator, resizeHandler } from "../utils";
+
 import Helmet from "./Helmet";
-import { CanvasState } from "myTypes";
 import KeyBoard from "./KeyBoard";
+
+import type { CanvasState } from "myTypes";
 
 const CanvasS = styled.canvas`
   position: fixed;
@@ -18,10 +21,10 @@ const CanvasS = styled.canvas`
   z-index: 1;
 `;
 
-let fps = 60;
+const fps = 60;
 let now;
 let then = Date.now();
-let interval = 1000 / fps;
+const interval = 1000 / fps;
 let delta;
 
 export default function Canvas() {
@@ -58,7 +61,7 @@ export default function Canvas() {
   let canvas: HTMLCanvasElement | null;
   let ctx: CanvasRenderingContext2D | null | undefined;
   let bubbles: Bubble[];
-  let viewport = { x: 0, y: 0 };
+  const viewport = { x: 0, y: 0 };
   let screenXMax = 0;
   let screenYMax = 0;
 
@@ -72,12 +75,7 @@ export default function Canvas() {
       if (delta > interval) {
         then = now - (delta % interval);
 
-        ctx.clearRect(
-          viewport.x,
-          viewport.y,
-          ctx.canvas.width,
-          ctx.canvas.height
-        );
+        ctx.clearRect(viewport.x, viewport.y, ctx.canvas.width, ctx.canvas.height);
 
         // main method
         toWork.update(screenXMax * 0.9, screenYMax * 0.3);
@@ -86,22 +84,10 @@ export default function Canvas() {
         fromWork.update(screenXMax + screenXMax * 0.1, screenYMax * 0.3);
         fromLecture.update(-screenXMax + screenXMax * 0.9, screenYMax * 0.6);
         fromAbout.update(screenXMax * 0.5, screenYMax + screenYMax * 0.1);
-        lectureFrame1.update(
-          -screenXMax + (screenXMax / 5) * 1,
-          (screenYMax / 3) * 1
-        );
-        lectureFrame2.update(
-          -screenXMax + (screenXMax / 5) * 2,
-          (screenYMax / 3) * 1
-        );
-        lectureFrame3.update(
-          -screenXMax + (screenXMax / 5) * 3,
-          (screenYMax / 3) * 1
-        );
-        lectureFrame4.update(
-          -screenXMax + (screenXMax / 5) * 1,
-          (screenYMax / 3) * 2
-        );
+        lectureFrame1.update(-screenXMax + (screenXMax / 5) * 1, (screenYMax / 3) * 1);
+        lectureFrame2.update(-screenXMax + (screenXMax / 5) * 2, (screenYMax / 3) * 1);
+        lectureFrame3.update(-screenXMax + (screenXMax / 5) * 3, (screenYMax / 3) * 1);
+        lectureFrame4.update(-screenXMax + (screenXMax / 5) * 1, (screenYMax / 3) * 2);
         fish1.update();
         fish2.update();
         fish3.update();
@@ -139,30 +125,9 @@ export default function Canvas() {
         ctx,
         viewport
       );
-      toWork.init(
-        screenXMax * 0.9,
-        screenYMax * 0.3,
-        "toWork",
-        "toWork",
-        ctx,
-        user
-      );
-      toLecture.init(
-        screenXMax * 0.1,
-        screenYMax * 0.6,
-        "toLecture",
-        "toLecture",
-        ctx,
-        user
-      );
-      toAbout.init(
-        screenXMax * 0.5,
-        screenYMax * 0.9,
-        "toAbout",
-        "toAbout",
-        ctx,
-        user
-      );
+      toWork.init(screenXMax * 0.9, screenYMax * 0.3, "toWork", "toWork", ctx, user);
+      toLecture.init(screenXMax * 0.1, screenYMax * 0.6, "toLecture", "toLecture", ctx, user);
+      toAbout.init(screenXMax * 0.5, screenYMax * 0.9, "toAbout", "toAbout", ctx, user);
       fromWork.init(
         screenXMax + screenXMax * 0.1,
         screenYMax * 0.3,
@@ -278,14 +243,7 @@ export default function Canvas() {
         user,
         "https://modest-liskov-3d6872.netlify.app/"
       );
-      aboutMe.init(
-        screenXMax * 0,
-        screenYMax + screenYMax,
-        "me",
-        "about",
-        ctx,
-        user
-      );
+      aboutMe.init(screenXMax * 0, screenYMax + screenYMax, "me", "about", ctx, user);
 
       for (let i = 0; i < 40; i++) {
         const x = randomGenerator(
@@ -300,8 +258,8 @@ export default function Canvas() {
     }
   };
 
-  const changeTitle = (title: CanvasState.Title) => {
-    setTitle(title);
+  const changeTitle = (_title: CanvasState.Title) => {
+    setTitle(_title);
   };
 
   useEffect(() => {
@@ -311,8 +269,7 @@ export default function Canvas() {
     if (canvas && ctx) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      canvas.style.background =
-        "url(/home_background.png) center/cover no-repeat fixed";
+      canvas.style.background = "url(/home_background.png) center/cover no-repeat fixed";
       init();
       animate();
     }
@@ -365,10 +322,7 @@ export default function Canvas() {
         ])
       );
 
-      window.removeEventListener(
-        "resize",
-        resizeHandler(canvas, viewport, init)
-      );
+      window.removeEventListener("resize", resizeHandler(canvas, viewport, init));
     };
   }, []);
 
@@ -377,7 +331,6 @@ export default function Canvas() {
       <Helmet title={title} />
       <CanvasS ref={canvasRef} />
       <KeyBoard
-        user={user}
         changeTitle={changeTitle}
         structures={[
           toWork,
@@ -397,6 +350,7 @@ export default function Canvas() {
           lectureFrame4,
           aboutMe,
         ]}
+        user={user}
       />
     </>
   );
