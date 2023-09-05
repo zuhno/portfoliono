@@ -40,14 +40,15 @@ const RoomModel = () => {
 
   const armatureInitAnimate = () => {
     setTimeout(() => {
+      console.log(actions.armature_falling);
       actions.armature_falling
-        ?.onFinish(() => {
+        ?.setLoop(THREE.LoopOnce, 1)
+        .play()
+        .onFinish(() => {
           roomAnimate();
           actions.armature_falling?.stop();
           actions.armature_typing?.setDuration(1.5).play();
-        })
-        .setLoop(THREE.LoopOnce, 1)
-        .play();
+        });
     }, 0);
   };
 

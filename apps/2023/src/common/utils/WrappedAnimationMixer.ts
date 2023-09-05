@@ -58,24 +58,31 @@ export class WrappedAnimationMixer extends AnimationMixer {
     root?: Object3D | AnimationObjectGroup | undefined,
     blendMode?: AnimationBlendMode | undefined
   ): WrappedAnimationAction {
-    const _this = super.clipAction.call(this, clip, root, blendMode) as WrappedAnimationAction;
+    const _this = super.clipAction(clip, root, blendMode) as WrappedAnimationAction;
 
-    _this.onFinish = (cb) => {
-      const intervalId = setInterval(() => {
-        if (_this.loop !== LoopOnce || !Number.isFinite(_this.repetitions)) {
-          clearInterval(intervalId);
-          throw new Error(
-            `'${clip.name}' is infinity loop clip. callback never execute from 'onFinish()'`
-          );
-        }
-        if (_this.time > _this.getClip().duration - 0.1) {
-          clearInterval(intervalId);
-          cb(_this);
-        }
-      }, 100);
+    Object.setPrototypeOf(
+      _this,
+      Object.assign(Object.getPrototypeOf(_this) as object, {
+        onFinish(cb: (_this: WrappedAnimationAction) => void) {
+          const intervalId = setInterval(() => {
+            if (_this.loop !== LoopOnce || !Number.isFinite(_this.repetitions)) {
+              clearInterval(intervalId);
+              throw new Error(
+                `'${
+                  _this.getClip().name
+                }' is infinity loop clip. callback never execute from 'onFinish()'`
+              );
+            }
+            if (_this.time > _this.getClip().duration - 0.1) {
+              clearInterval(intervalId);
+              cb(_this);
+            }
+          }, 100);
 
-      return _this;
-    };
+          return _this;
+        },
+      })
+    );
 
     return _this;
   }
