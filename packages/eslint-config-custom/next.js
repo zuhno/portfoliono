@@ -53,6 +53,15 @@ module.exports = {
     "@typescript-eslint/naming-convention": "off",
     "unicorn/filename-case": "off",
     "no-nested-ternary": "off",
+    "@typescript-eslint/no-empty-function": "warn",
+    "react/function-component-definition": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
+    "react/no-unknown-property": [
+      "error",
+      {
+        ignore: ["object"],
+      },
+    ],
     "import/no-extraneous-dependencies": [
       "warn",
       {

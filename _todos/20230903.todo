@@ -8,5 +8,5 @@ Todos:
   Project:
     2023:
       ✔ install `three`, `@react-three/fiber`, `@react-three/drei` @done(23-09-03 21:52)
-      ☐ implement animation by once finish trigger
+      ✘ implement animation by once finish trigger @cancelled(23-09-04 14:36)
       
