@@ -1,7 +1,6 @@
 "use client";
 
 import { useGLTF } from "@react-three/drei";
-import { useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 import * as THREE from "three";
 
@@ -12,14 +11,25 @@ const RESOURCE_PATH = "/portfolio_room.glb";
 useGLTF.preload(RESOURCE_PATH);
 
 const RoomModel = () => {
-  useThree(({ camera }) => {
-    camera.rotation.set(0, 0, 1000);
-  });
-
   const { scene, animations } = useGLTF(RESOURCE_PATH);
   const { actions } = useAnimateWrapper(animations, scene);
 
-  const roomAnimate = () => {
+  // room 모델 착륙
+  const _onLandAnimate = () => {
+    const landClips = Object.entries(actions).filter(([key]) => key.includes("land"));
+
+    landClips.forEach(([, clip]) => {
+      clip
+        ?.setLoop(THREE.LoopOnce, 1)
+        .play()
+        .onFinish(() => {
+          clip.stop();
+        });
+    });
+  };
+
+  // room 모델 이륙 - 활공 유지
+  const _onTakeoffAnimate = () => {
     const takeoffClips = Object.entries(actions).filter(([key]) => key.includes("takeoff"));
     const flyingClips = Object.entries(actions).filter(([key]) => key.includes("flying"));
 
@@ -40,12 +50,10 @@ const RoomModel = () => {
 
   const armatureInitAnimate = () => {
     setTimeout(() => {
-      console.log(actions.armature_falling);
       actions.armature_falling
         ?.setLoop(THREE.LoopOnce, 1)
         .play()
         .onFinish(() => {
-          roomAnimate();
           actions.armature_falling?.stop();
           actions.armature_typing?.setDuration(1.5).play();
         });

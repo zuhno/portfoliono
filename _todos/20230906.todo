@@ -1,0 +1,10 @@
+Todos:
+  Project:
+    2023:
+      google maps component:
+        ☐ static companies coordinates
+        ☐ auto zoom in/out
+        ☐ prevent mouse event
+      css:
+        ☐ typing animation for ballon
+      
