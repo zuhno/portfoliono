@@ -6,10 +6,14 @@ import * as THREE from "three";
 
 import useAnimateWrapper from "@common/hooks/useAnimateWrapper";
 
-const RESOURCE_PATH = "/portfolio_room.glb";
+const RESOURCE_PATH = "/model/portfolio_room.glb";
 
 useGLTF.preload(RESOURCE_PATH);
 
+/**
+ * @constant camera_position [10, 6, 10]
+ * @constant camera_near 0.1
+ */
 const RoomModel = () => {
   const { scene, animations } = useGLTF(RESOURCE_PATH);
   const { actions } = useAnimateWrapper(animations, scene);
@@ -49,15 +53,14 @@ const RoomModel = () => {
   };
 
   const armatureInitAnimate = () => {
-    setTimeout(() => {
-      actions.armature_falling
-        ?.setLoop(THREE.LoopOnce, 1)
-        .play()
-        .onFinish(() => {
-          actions.armature_falling?.stop();
-          actions.armature_typing?.setDuration(1.5).play();
-        });
-    }, 0);
+    actions.armature_falling
+      ?.setLoop(THREE.LoopOnce, 1)
+      .fadeIn(0.05)
+      .play()
+      .onFinish(() => {
+        actions.armature_falling?.stop();
+        actions.armature_typing?.setDuration(1.5).play();
+      });
   };
 
   useEffect(() => {
@@ -65,11 +68,7 @@ const RoomModel = () => {
     armatureInitAnimate();
   }, [actions]);
 
-  return (
-    <>
-      <primitive object={scene} scale={1} />;
-    </>
-  );
+  return <primitive object={scene} scale={1} />;
 };
 
 export default RoomModel;

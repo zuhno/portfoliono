@@ -2,9 +2,10 @@ Todos:
   Project:
     2023:
       google maps component:
-        ☐ static companies coordinates
+        ✔ static companies coordinates @done(23-09-06 23:10)
         ☐ auto zoom in/out
         ☐ prevent mouse event
       css:
         ☐ typing animation for ballon
+        ✔ set scroll snap type @done(23-09-06 23:11)
       

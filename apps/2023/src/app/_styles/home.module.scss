@@ -1,5 +1,13 @@
-@import "variables";
+@use "mixins";
 
 .main {
-  color: $color-primary;
+  @include mixins.snap-scroll-parent;
+
+  width: 100%;
+}
+
+.section-container {
+  @include mixins.snap-scroll-child;
+
+  width: 100%;
 }

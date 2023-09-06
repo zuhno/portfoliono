@@ -1,46 +1,13 @@
 import {
   type AnimationClip,
-  type AnimationAction,
   type AnimationBlendMode,
   type AnimationObjectGroup,
-  type AnimationActionLoopStyles,
   type Object3D,
   LoopOnce,
   AnimationMixer,
 } from "three";
 
-export interface WrappedAnimationAction extends AnimationAction {
-  play: () => WrappedAnimationAction;
-  stop: () => WrappedAnimationAction;
-  reset: () => WrappedAnimationAction;
-  startAt: (_time: number) => WrappedAnimationAction;
-  setLoop: (_mode: AnimationActionLoopStyles, _repetitions: number) => WrappedAnimationAction;
-  setEffectiveWeight: (_weight: number) => WrappedAnimationAction;
-  fadeIn: (_duration: number) => WrappedAnimationAction;
-  fadeOut: (_duration: number) => WrappedAnimationAction;
-  crossFadeFrom: (
-    _fadeOutAction: WrappedAnimationAction,
-    _duration: number,
-    _warp: boolean
-  ) => WrappedAnimationAction;
-  crossFadeTo: (
-    _fadeInAction: WrappedAnimationAction,
-    _duration: number,
-    _warp: boolean
-  ) => WrappedAnimationAction;
-  stopFading: () => WrappedAnimationAction;
-  setEffectiveTimeScale: (_timeScale: number) => WrappedAnimationAction;
-  setDuration: (_duration: number) => WrappedAnimationAction;
-  syncWith: (_action: WrappedAnimationAction) => WrappedAnimationAction;
-  halt: (_duration: number) => WrappedAnimationAction;
-  warp: (
-    _statTimeScale: number,
-    _endTimeScale: number,
-    _duration: number
-  ) => WrappedAnimationAction;
-  stopWarping: () => WrappedAnimationAction;
-  onFinish: (_cb: (_this: WrappedAnimationAction) => void) => WrappedAnimationAction;
-}
+import { type WrappedAnimationAction } from "@common/types/WrappedAnimationAction";
 
 export interface Api<T extends AnimationClip> {
   ref: React.MutableRefObject<Object3D | undefined | null>;

@@ -56,6 +56,7 @@ module.exports = {
     "@typescript-eslint/no-empty-function": "warn",
     "react/function-component-definition": "off",
     "@typescript-eslint/no-unsafe-return": "off",
+    "tsdoc/syntax": "off",
     "react/no-unknown-property": [
       "error",
       {

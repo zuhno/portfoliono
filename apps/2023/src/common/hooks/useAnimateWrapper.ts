@@ -2,11 +2,8 @@ import { useFrame } from "@react-three/fiber";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { type AnimationClip, Object3D } from "three";
 
-import {
-  type Api,
-  type WrappedAnimationAction,
-  WrappedAnimationMixer,
-} from "@common/utils/WrappedAnimationMixer";
+import { type WrappedAnimationAction } from "@common/types/WrappedAnimationAction";
+import { type Api, WrappedAnimationMixer } from "@common/utils/WrappedAnimationMixer";
 
 export function useAnimationsWrapper<T extends AnimationClip>(
   clips: T[],
