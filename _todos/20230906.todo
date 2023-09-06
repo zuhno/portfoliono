@@ -3,9 +3,9 @@ Todos:
     2023:
       google maps component:
         ✔ static companies coordinates @done(23-09-06 23:10)
-        ☐ auto zoom in/out
-        ☐ prevent mouse event
+        ✘ auto zoom in/out @cancelled(23-09-07 00:22)
+        ✘ prevent mouse event @cancelled(23-09-07 00:22)
       css:
-        ☐ typing animation for ballon
+        ✘ typing animation for ballon @cancelled(23-09-07 00:22)
         ✔ set scroll snap type @done(23-09-06 23:11)
       
