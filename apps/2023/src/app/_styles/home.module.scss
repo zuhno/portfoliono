@@ -9,5 +9,6 @@
 .section-container {
   @include mixins.snap-scroll-child;
 
+  position: relative;
   width: 100%;
 }

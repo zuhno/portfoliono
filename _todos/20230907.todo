@@ -2,8 +2,8 @@ Todos:
   Project:
     2023:
       google maps component:
-        ☐ auto zoom in/out
-        ☐ prevent mouse event
+        ✔ auto zoom in/out @done(23-09-07 22:24)
+        ✔ prevent mouse event -> (alternative) add upper layer @done(23-09-07 22:25)
       css:
-        ☐ typing animation for ballon
+        ✘ typing animation for ballon @cancelled(23-09-07 22:28)
       

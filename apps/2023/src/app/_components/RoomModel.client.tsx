@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import * as THREE from "three";
 
 import useAnimateWrapper from "@common/hooks/useAnimateWrapper";
+import { sleep } from "@common/utils/timer";
 
 const RESOURCE_PATH = "/model/portfolio_room.glb";
 
@@ -19,12 +20,18 @@ const RoomModel = () => {
   const { actions } = useAnimateWrapper(animations, scene);
 
   // room 모델 착륙
-  const _onLandAnimate = () => {
+  const landAnimate = () => {
+    const flyingClips = Object.entries(actions).filter(([key]) => key.includes("flying"));
     const landClips = Object.entries(actions).filter(([key]) => key.includes("land"));
 
-    landClips.forEach(([, clip]) => {
+    flyingClips?.forEach(([_, clip]) => {
+      clip?.stop();
+    });
+
+    landClips.forEach(([_, clip]) => {
       clip
         ?.setLoop(THREE.LoopOnce, 1)
+        .setDuration(4)
         .play()
         .onFinish(() => {
           clip.stop();
@@ -33,7 +40,7 @@ const RoomModel = () => {
   };
 
   // room 모델 이륙 - 활공 유지
-  const _onTakeoffAnimate = () => {
+  const takeoffAnimate = () => {
     const takeoffClips = Object.entries(actions).filter(([key]) => key.includes("takeoff"));
     const flyingClips = Object.entries(actions).filter(([key]) => key.includes("flying"));
 
@@ -46,29 +53,40 @@ const RoomModel = () => {
         .play()
         .onFinish(() => {
           clip.stop();
-          console.log(1213);
           flyingClip?.play();
         });
     });
   };
 
   const armatureInitAnimate = () => {
-    actions.armature_falling
-      ?.setLoop(THREE.LoopOnce, 1)
-      .fadeIn(0.05)
-      .play()
-      .onFinish(() => {
-        actions.armature_falling?.stop();
-        actions.armature_typing?.setDuration(1.5).play();
-      });
+    setTimeout(() => {
+      actions.armature_falling
+        ?.setLoop(THREE.LoopOnce, 1)
+        .play()
+        .onFinish(() => {
+          actions.armature_falling?.stop();
+          actions.armature_typing?.setDuration(1.5).play();
+        });
+    }, 0);
   };
+
+  const onFlight = async () => {
+    await sleep(4000);
+    takeoffAnimate();
+    await sleep(6500);
+    landAnimate();
+  };
+
+  useEffect(() => {
+    onFlight().catch(() => {});
+  }, []);
 
   useEffect(() => {
     if (!actions) return;
     armatureInitAnimate();
   }, [actions]);
 
-  return <primitive object={scene} scale={1} />;
+  return <primitive object={scene} scale={0.8} />;
 };
 
 export default RoomModel;
