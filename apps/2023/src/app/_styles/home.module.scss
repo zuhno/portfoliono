@@ -1,4 +1,5 @@
 @use "mixins";
+@use "variables";
 
 .main {
   @include mixins.snap-scroll-parent;
@@ -9,6 +10,44 @@
 .section-container {
   @include mixins.snap-scroll-child;
 
-  position: relative;
   width: 100%;
+}
+
+.map-container,
+.model-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.section {
+  width: inherit;
+  height: inherit;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .section01 {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    gap: 30px;
+
+    .armature-view-container {
+      @include mixins.card;
+
+      width: 100%;
+
+      position: relative;
+    }
+
+    .info {
+      @include mixins.card;
+
+      width: 100%;
+    }
+  }
 }

@@ -1,5 +1,8 @@
+@use "variables";
+
 @mixin snap-scroll-parent {
   height: 100vh;
+  max-height: 100vh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
 }
@@ -8,4 +11,11 @@
   height: 100%;
   overflow-y: hidden;
   scroll-snap-align: center;
+}
+
+@mixin card {
+  background-color: variables.$card-bg;
+  border-radius: 30px;
+  padding: 20px;
+  box-sizing: border-box;
 }

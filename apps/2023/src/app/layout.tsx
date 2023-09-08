@@ -1,6 +1,6 @@
 import "@common/styles/globals.scss";
 
-import styles from "./_styles/home.module.scss";
+import homeStyles from "./_styles/home.module.scss";
 
 import type { Metadata } from "next";
 
@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <body>
-        <main className={styles.main}>{children}</main>
+        <main className={homeStyles.main}>{children}</main>
       </body>
     </html>
   );
