@@ -20,12 +20,13 @@ const GoogleMapContainer = ({ children }: PropsWithChildren<any>) => {
 
   function* zoomGenerateSequence(type: "increase" | "decrease") {
     const limit = 8;
+    const increment = 0.1;
 
     const promises: any[] = [];
     for (
       let i = type === "increase" ? 0 : limit;
       type === "increase" ? i <= limit : i >= 0;
-      type === "increase" ? (i += 0.1) : (i -= 0.1)
+      type === "increase" ? (i += increment) : (i -= increment)
     ) {
       promises.push(
         yield new Promise((r) => {

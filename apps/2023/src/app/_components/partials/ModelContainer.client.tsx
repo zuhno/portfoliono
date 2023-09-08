@@ -14,8 +14,8 @@ interface IProps {
 const ModelContainer = ({ children, cameraNear, cameraPosition }: PropsWithChildren<IProps>) => {
   return (
     <div className={homeStyles["model-container"]}>
-      <Canvas>
-        <Suspense fallback={null}>
+      <Suspense fallback={<span style={{ color: "white" }}>loading...</span>}>
+        <Canvas>
           <PerspectiveCamera
             far={1000}
             fov={30} // 시야각 조정
@@ -32,8 +32,8 @@ const ModelContainer = ({ children, cameraNear, cameraPosition }: PropsWithChild
             enableZoom={false}
           />
           <Environment preset="forest" />
-        </Suspense>
-      </Canvas>
+        </Canvas>
+      </Suspense>
     </div>
   );
 };

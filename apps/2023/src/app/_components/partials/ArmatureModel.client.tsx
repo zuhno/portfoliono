@@ -21,7 +21,7 @@ const RoomModel = () => {
     if (!actions) return;
   }, [actions]);
 
-  return <primitive object={scene} scale={0.8} />;
+  return <primitive object={scene} scale={1} />;
 };
 
 export default RoomModel;

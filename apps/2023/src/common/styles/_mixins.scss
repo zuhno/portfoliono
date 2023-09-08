@@ -13,9 +13,25 @@
   scroll-snap-align: center;
 }
 
-@mixin card {
+@mixin card($radius: 0, $padding: 0) {
   background-color: variables.$card-bg;
-  border-radius: 30px;
-  padding: 20px;
   box-sizing: border-box;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+
+  @if $padding != 0 {
+    padding: $padding;
+  }
+}
+
+@mixin square-box($width: 100%, $ratio: 1 / 1) {
+  width: $width;
+  aspect-ratio: $ratio;
+}
+
+@mixin rectangle-box($width: 100%, $height: auto) {
+  width: $width;
+  height: $height;
 }
