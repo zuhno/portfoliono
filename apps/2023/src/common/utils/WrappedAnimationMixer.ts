@@ -27,29 +27,24 @@ export class WrappedAnimationMixer extends AnimationMixer {
   ): WrappedAnimationAction {
     const _this = super.clipAction(clip, root, blendMode) as WrappedAnimationAction;
 
-    Object.setPrototypeOf(
-      _this,
-      Object.assign(Object.getPrototypeOf(_this) as object, {
-        onFinish(cb: (_this: WrappedAnimationAction) => void) {
-          const intervalId = setInterval(() => {
-            if (_this.loop !== LoopOnce || !Number.isFinite(_this.repetitions)) {
-              clearInterval(intervalId);
-              throw new Error(
-                `'${
-                  _this.getClip().name
-                }' is infinity loop clip. callback never execute from 'onFinish()'`
-              );
-            }
-            if (_this.time > _this.getClip().duration - 0.1) {
-              clearInterval(intervalId);
-              cb(_this);
-            }
-          }, 100);
+    _this.onFinish = (cb: (_this: WrappedAnimationAction) => void) => {
+      const intervalId = setInterval(() => {
+        if (_this.loop !== LoopOnce || !Number.isFinite(_this.repetitions)) {
+          clearInterval(intervalId);
+          throw new Error(
+            `'${
+              _this.getClip().name
+            }' is infinity loop clip. callback never execute from 'onFinish()'`
+          );
+        }
+        if (_this.time > _this.getClip().duration - 0.1) {
+          clearInterval(intervalId);
+          cb(_this);
+        }
+      }, 100);
 
-          return _this;
-        },
-      })
-    );
+      return _this;
+    };
 
     return _this;
   }

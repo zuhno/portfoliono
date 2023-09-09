@@ -11,11 +11,15 @@ const Section01 = () => {
       <div className={homeStyles.section}>
         <div className={homeStyles.section01}>
           <div className={homeStyles["armature-view-container"]}>
-            <ModelContainer cameraNear={0.1} cameraPosition={[0, 0, 20]}>
+            <ModelContainer cameraPosition={[0, 0, 17]}>
               <ArmatureModel />
             </ModelContainer>
           </div>
-          <div className={homeStyles.info}></div>
+          <div className={homeStyles.stat}>
+            statstatstatstatstats sdsd statstatstatstatstats sdsd statstatstatstatstats sdsd
+          </div>
+          <div className={homeStyles.nick}>Cuttleman</div>
+          <div className={homeStyles.info}>info</div>
         </div>
       </div>
     </div>

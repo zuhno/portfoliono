@@ -31,22 +31,75 @@
   align-items: center;
   overflow: hidden;
 
+  &.disable {
+    display: none;
+  }
+
   .section01 {
     width: 80%;
     height: fit-content;
-    display: flex;
-    gap: 30px;
+    display: grid;
+    grid-template-areas:
+      "model nick"
+      "model info"
+      "stat info";
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+
+    @include mixins.tablet {
+      width: 90%;
+      gap: 30px;
+    }
+    @include mixins.mobile {
+      width: 90%;
+      gap: 20px;
+    }
+
+    .stat {
+      grid-area: stat;
+
+      @include mixins.rectangle-box;
+      @include mixins.card(15px, 30px);
+
+      @include mixins.tablet {
+        @include mixins.card(15px, 20px);
+      }
+      @include mixins.mobile {
+        @include mixins.card(15px, 10px);
+      }
+    }
+
+    .nick {
+      grid-area: nick;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 10px 0 0 10px;
+      margin-bottom: -15px;
+
+      @include mixins.rectangle-box;
+    }
 
     .armature-view-container {
-      @include mixins.square-box(50%);
-      @include mixins.card(30px);
-
+      grid-area: model;
       position: relative;
+
+      @include mixins.square-box;
+      @include mixins.card(15px);
     }
 
     .info {
+      grid-area: info;
+
       @include mixins.rectangle-box;
-      @include mixins.card(30px, 20px);
+      @include mixins.card(15px, 30px);
+
+      @include mixins.tablet {
+        @include mixins.card(15px, 20px);
+      }
+      @include mixins.mobile {
+        @include mixins.card(15px, 10px);
+      }
     }
   }
 }

@@ -2,7 +2,7 @@
 
 import { useGLTF } from "@react-three/drei";
 import { useEffect } from "react";
-import * as THREE from "three";
+import { LoopOnce } from "three";
 
 import useAnimateWrapper from "@common/hooks/useAnimateWrapper";
 import { sleep } from "@common/utils/timer";
@@ -11,11 +11,15 @@ const RESOURCE_PATH = "/model/portfolio_room.glb";
 
 useGLTF.preload(RESOURCE_PATH);
 
+interface IProps {
+  isInView: boolean;
+}
+
 /**
  * @constant camera_position [10, 6, 10]
  * @constant camera_near 0.1
  */
-const RoomModel = () => {
+const RoomModel = ({ isInView }: IProps) => {
   const { scene, animations } = useGLTF(RESOURCE_PATH);
   const { actions } = useAnimateWrapper(animations, scene);
 
@@ -30,7 +34,7 @@ const RoomModel = () => {
 
     landClips.forEach(([_, clip]) => {
       clip
-        ?.setLoop(THREE.LoopOnce, 1)
+        ?.setLoop(LoopOnce, 1)
         .setDuration(4)
         .play()
         .onFinish(() => {
@@ -49,7 +53,7 @@ const RoomModel = () => {
         ([key2]) => key.split("_")[0] === key2.split("_")[0]
       )?.[1];
       clip
-        ?.setLoop(THREE.LoopOnce, 1)
+        ?.setLoop(LoopOnce, 1)
         .play()
         .onFinish(() => {
           clip.stop();
@@ -61,16 +65,17 @@ const RoomModel = () => {
   const armatureInitAnimate = () => {
     setTimeout(() => {
       actions.armature_falling
-        ?.setLoop(THREE.LoopOnce, 1)
+        ?.setLoop(LoopOnce, 1)
         .play()
         .onFinish(() => {
           actions.armature_falling?.stop();
           actions.armature_typing?.setDuration(1.5).play();
+          console.log(123);
         });
     }, 0);
   };
 
-  const onFlight = async () => {
+  const _onFlight = async () => {
     await sleep(4000);
     takeoffAnimate();
     await sleep(6500);
@@ -78,13 +83,8 @@ const RoomModel = () => {
   };
 
   useEffect(() => {
-    onFlight().catch(() => {});
-  }, []);
-
-  useEffect(() => {
-    if (!actions) return;
-    armatureInitAnimate();
-  }, [actions]);
+    if (isInView) armatureInitAnimate();
+  }, [isInView]);
 
   return <primitive object={scene} scale={0.8} />;
 };

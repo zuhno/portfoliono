@@ -1,6 +1,16 @@
 @use "reset";
 @use "variables";
+@use "mixins";
 
 html {
-  background-color: variables.$bg;
+  background-color: variables.$root-bg;
+  color: variables.$font-color;
+  font-size: 16px;
+
+  @include mixins.tablet {
+    font-size: 14px;
+  }
+  @include mixins.mobile {
+    font-size: 13px;
+  }
 }

@@ -17,9 +17,13 @@ const RoomModel = () => {
   const { scene, animations } = useGLTF(RESOURCE_PATH);
   const { actions } = useAnimateWrapper(animations, scene);
 
+  const onRotation = () => {
+    actions.armature_rotation?.play();
+  };
+
   useEffect(() => {
-    if (!actions) return;
-  }, [actions]);
+    onRotation();
+  }, []);
 
   return <primitive object={scene} scale={1} />;
 };
