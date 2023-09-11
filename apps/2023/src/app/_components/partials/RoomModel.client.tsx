@@ -12,14 +12,15 @@ const RESOURCE_PATH = "/model/portfolio_room.glb";
 useGLTF.preload(RESOURCE_PATH);
 
 interface IProps {
-  isInView: boolean;
+  isInit: boolean;
+  isFlight: boolean;
 }
 
 /**
  * @constant camera_position [10, 6, 10]
  * @constant camera_near 0.1
  */
-const RoomModel = ({ isInView }: IProps) => {
+const RoomModel = ({ isInit, isFlight }: IProps) => {
   const { scene, animations } = useGLTF(RESOURCE_PATH);
   const { actions } = useAnimateWrapper(animations, scene);
 
@@ -75,16 +76,19 @@ const RoomModel = ({ isInView }: IProps) => {
     }, 0);
   };
 
-  const _onFlight = async () => {
-    await sleep(4000);
+  const onFlight = async () => {
     takeoffAnimate();
     await sleep(6500);
     landAnimate();
   };
 
   useEffect(() => {
-    if (isInView) armatureInitAnimate();
-  }, [isInView]);
+    if (isInit) armatureInitAnimate();
+  }, [isInit]);
+
+  useEffect(() => {
+    if (isFlight) onFlight().catch(() => {});
+  }, [isFlight]);
 
   return <primitive object={scene} scale={0.8} />;
 };

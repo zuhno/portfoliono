@@ -58,6 +58,8 @@ module.exports = {
     "react/function-component-definition": "off",
     "@typescript-eslint/no-unsafe-return": "off",
     "tsdoc/syntax": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
     "react/no-unknown-property": [
       "error",
       {

@@ -14,3 +14,10 @@ html {
     font-size: 13px;
   }
 }
+
+:root {
+  --aside-width: 70px;
+  @include mixins.tablet {
+    --aside-width: 30px;
+  }
+}

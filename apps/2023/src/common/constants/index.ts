@@ -99,3 +99,55 @@ export const googleMapDarkThemeConfig = {
     },
   ],
 };
+
+export const stats = [
+  {
+    id: "stat-hp",
+    label: "HP",
+    description: "요근래 체력량",
+    value: 850,
+    max: 1000,
+  },
+  {
+    id: "stat-str",
+    label: "STR",
+    description: "개발할때 사용할 수 있는 근육량",
+    value: 77,
+    max: 100,
+  },
+  {
+    id: "stat-dex",
+    label: "DEX",
+    description: "기능구현까지의 민첩성",
+    value: 64,
+    max: 100,
+  },
+  {
+    id: "stat-int",
+    label: "INT",
+    description: "좀더 쉽게 살기위한 잔머리",
+    value: 83,
+    max: 100,
+  },
+  {
+    id: "stat-luk",
+    label: "LUK",
+    description: "살아온 인생중 운빨 비율",
+    value: 45,
+    max: 100,
+  },
+  {
+    id: "stat-atk",
+    label: "ATK",
+    description: "흉흉한 시대에 살아남기 위한 공격력",
+    value: 88,
+    max: 100,
+  },
+  {
+    id: "stat-def",
+    label: "DEF",
+    description: "험난한 시대에 살아남기 위한 방어력",
+    value: 65,
+    max: 100,
+  },
+];

@@ -1,25 +1,45 @@
 "use client";
 
 import GoogleMapReact from "google-map-react";
-import { useState, type PropsWithChildren, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import {
   type CompaniesCoordinate,
   companiesCoordinate,
   googleMapDarkThemeConfig,
 } from "@common/constants";
-import { sleep } from "@common/utils/timer";
 
 import homeStyles from "../../_styles/home.module.scss";
 
-const GoogleMapContainer = ({ children }: PropsWithChildren<any>) => {
+interface IProps {
+  toHome: boolean;
+  toItam: boolean;
+  toMW: boolean;
+  toLab: boolean;
+}
+
+const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
   const [coordinate, setCoordinate] = useState<CompaniesCoordinate>(
     companiesCoordinate["nomad-coders"]
   );
   const [zoom, setZoom] = useState(20);
 
+  const renderMarker = useCallback(({ map, maps }) => {
+    Object.entries(companiesCoordinate).forEach(([key, value]) => {
+      // eslint-disable-next-line no-new -- .
+      new maps.Marker({
+        position: {
+          lat: value.lat,
+          lng: value.lng,
+        },
+        map,
+        title: key,
+      });
+    });
+  }, []);
+
   function* zoomGenerateSequence(type: "increase" | "decrease") {
-    const limit = 8;
+    const limit = 3;
     const increment = 0.1;
 
     const promises: any[] = [];
@@ -40,24 +60,26 @@ const GoogleMapContainer = ({ children }: PropsWithChildren<any>) => {
 
   const zoomOut = async () => {
     const sequence = zoomGenerateSequence("increase");
-    for await (let _ of sequence) continue;
+    for await (const _ of sequence) continue;
   };
 
   const zoomIn = async () => {
     const sequence = zoomGenerateSequence("decrease");
-    for await (let _ of sequence) continue;
+    for await (const _ of sequence) continue;
   };
 
-  const onFlight = async () => {
-    await sleep(5000);
+  const onFlight = async (to: CompaniesCoordinate) => {
     await zoomOut();
-    setCoordinate(companiesCoordinate.itamgames);
+    setCoordinate(to);
     await zoomIn();
   };
 
   useEffect(() => {
-    onFlight().catch(() => {});
-  }, []);
+    if (toHome) onFlight(companiesCoordinate["nomad-coders"]).catch(() => {});
+    if (toItam) onFlight(companiesCoordinate.itamgames).catch(() => {});
+    if (toMW) onFlight(companiesCoordinate["metaverse-world"]).catch(() => {});
+    if (toLab) onFlight(companiesCoordinate.quest3).catch(() => {});
+  }, [toHome, toItam, toMW, toLab]);
 
   return (
     <div className={homeStyles["map-container"]}>
@@ -66,12 +88,11 @@ const GoogleMapContainer = ({ children }: PropsWithChildren<any>) => {
         center={coordinate}
         defaultCenter={companiesCoordinate["nomad-coders"]}
         defaultZoom={20}
+        onGoogleApiLoaded={renderMarker}
         options={googleMapDarkThemeConfig}
         yesIWantToUseGoogleMapApiInternals
         zoom={zoom}
-      >
-        {children}
-      </GoogleMapReact>
+      />
     </div>
   );
 };

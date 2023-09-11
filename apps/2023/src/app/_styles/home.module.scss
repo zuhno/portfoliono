@@ -4,13 +4,30 @@
 .main {
   @include mixins.snap-scroll-parent;
 
-  width: 100%;
+  width: calc(100% - var(--aside-width));
+  margin-left: var(--aside-width);
+}
+
+.aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: variables.$card-bg;
+  border-right: 1px solid variables.$border-color;
+  width: var(--aside-width);
+  height: 100vh;
 }
 
 .section-container {
   @include mixins.snap-scroll-child;
 
   width: 100%;
+
+  &.section-sticky {
+    position: sticky;
+    top: 0;
+  }
 }
 
 .map-container,
@@ -25,15 +42,10 @@
 .section {
   width: inherit;
   height: inherit;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-
-  &.disable {
-    display: none;
-  }
 
   .section01 {
     width: 80%;
@@ -57,6 +69,7 @@
 
     .stat {
       grid-area: stat;
+      cursor: default;
 
       @include mixins.rectangle-box;
       @include mixins.card(15px, 30px);
@@ -67,12 +80,99 @@
       @include mixins.mobile {
         @include mixins.card(15px, 10px);
       }
+
+      &__gauge {
+        margin-bottom: 30px;
+        width: 95%;
+        display: flex;
+        align-items: center;
+
+        &--label {
+          margin-right: 15px;
+          font-size: 0.9rem;
+        }
+
+        &--bar {
+          position: relative;
+          width: 100%;
+          height: 5px;
+          border-radius: 10rem;
+          background-color: black;
+          margin-bottom: -8px;
+
+          span {
+            position: absolute;
+            top: -15px;
+            right: 0;
+            margin: auto;
+            width: fit-content;
+            height: fit-content;
+            font-size: 0.6rem;
+          }
+        }
+      }
+
+      &__badge-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        row-gap: 20px;
+
+        @include mixins.card(10px, 15px 10px);
+        @include mixins.rectangle-box;
+        background-color: variables.$border-color;
+      }
+
+      &__badge-title {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+      }
+
+      &__badge {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+
+        &--label {
+          width: fit-content;
+          height: 22px;
+          display: flex;
+          align-items: center;
+          border-radius: 5rem;
+          padding: 0 8px;
+          margin-right: 10px;
+
+          span {
+            line-height: normal;
+            font-size: 0.7rem;
+          }
+
+          &--stat-str {
+            background-color: rgb(157, 49, 49);
+          }
+          &--stat-dex {
+            background-color: rgb(87, 147, 79);
+          }
+          &--stat-int {
+            background-color: rgb(65, 144, 168);
+          }
+          &--stat-luk {
+            background-color: rgb(105, 64, 162);
+          }
+          &--stat-atk {
+            background-color: rgb(184, 104, 71);
+          }
+          &--stat-def {
+            background-color: rgb(59, 72, 166);
+          }
+        }
+      }
     }
 
     .nick {
       grid-area: nick;
       color: white;
-      font-size: 2rem;
+      font-size: 3rem;
       font-weight: 700;
       padding: 10px 0 0 10px;
       margin-bottom: -15px;
@@ -101,5 +201,11 @@
         @include mixins.card(15px, 10px);
       }
     }
+  }
+
+  .section02 {
+    position: relative;
+    width: inherit;
+    height: inherit;
   }
 }
