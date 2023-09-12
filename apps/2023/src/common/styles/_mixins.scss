@@ -1,15 +1,15 @@
 @use "variables";
 
 @mixin snap-scroll-parent {
-  height: 100.1vh;
+  max-height: 100vh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
 }
 
 @mixin snap-scroll-child {
-  height: 100%;
+  height: 100.1vh;
   overflow-y: hidden;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   scroll-snap-stop: always;
 }
 

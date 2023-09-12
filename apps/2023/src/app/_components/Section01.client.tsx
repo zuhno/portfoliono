@@ -22,6 +22,10 @@ const Section01 = () => {
               <ModelContainer cameraPosition={[0, 0, 17]}>
                 <ArmatureModel />
               </ModelContainer>
+              <div className={homeStyles.property}>
+                {/* eslint-disable-next-line @next/next/no-img-element -- too small thing. */}
+                <img alt="property" src="/image/water.svg" />
+              </div>
             </div>
             <div className={homeStyles.stat}>
               <StatGauge
@@ -31,7 +35,7 @@ const Section01 = () => {
                 max={hpStat.max}
                 value={hpStat.value}
               />
-              <p className={homeStyles["stat__badge-title"]}>Stat</p>
+              <p className={homeStyles["stat__badge-title"]}>Status</p>
               <div className={homeStyles["stat__badge-container"]}>
                 {restStats.map((stat) => (
                   <StatBadge
@@ -45,7 +49,34 @@ const Section01 = () => {
               </div>
             </div>
             <div className={homeStyles.nick}>Cuttleman</div>
-            <div className={homeStyles.info}>info</div>
+            <div className={homeStyles.info}>
+              <ul>
+                <li>
+                  <div>Why Cuttleman?</div>
+                  <pre>- cuttlefish + man</pre>
+                  <p>
+                    display mean: 환경의 색에 잘 녹아드는 오징어처럼 어떤 조직이던지 그 색에 맞춰
+                    녹아드는 사람이 되겠습니다.
+                  </p>
+                  <p>real mean: 유튜브에서 본 갑오징어가 너무 귀여워서 본인의 캐릭터로 만듬.</p>
+                </li>
+                <li>
+                  <div>Position</div>
+                  <p>Frontend Developer</p>
+                </li>
+                <li>
+                  <div>Hobby</div>
+                  <p>webtoon, boxing, modeling(blender)</p>
+                </li>
+                <li>
+                  <div>Career</div>
+                  <p>2019.12 ~ 2021.08 : Nomad Coders lecture</p>
+                  <p>2021.09 ~ 2021.12 : Itamgames Corp.</p>
+                  <p>2022.01 ~ 2022.10 : Metaverse World Corp.</p>
+                  <p>2022.12 ~ 2023.06 : Quest3(a.k.a Lab3) Corp.</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

@@ -23,11 +23,6 @@
   @include mixins.snap-scroll-child;
 
   width: 100%;
-
-  &.section-sticky {
-    position: sticky;
-    top: 0;
-  }
 }
 
 .map-container,
@@ -120,6 +115,7 @@
 
         @include mixins.card(10px, 15px 10px);
         @include mixins.rectangle-box;
+
         background-color: variables.$border-color;
       }
 
@@ -186,6 +182,17 @@
 
       @include mixins.square-box;
       @include mixins.card(15px);
+
+      .property {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        filter: drop-shadow(0 0 4px rgb(143, 200, 247));
+
+        img {
+          @include mixins.square-box(45px);
+        }
+      }
     }
 
     .info {
@@ -199,6 +206,35 @@
       }
       @include mixins.mobile {
         @include mixins.card(15px, 10px);
+      }
+
+      ul {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+
+        li {
+          div {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+          }
+
+          pre {
+            margin-left: 10px;
+            margin-bottom: 10px;
+            font-style: italic;
+          }
+
+          p {
+            font-size: 1rem;
+            &:not(:last-of-type) {
+              margin-bottom: 10px;
+            }
+          }
+        }
       }
     }
   }

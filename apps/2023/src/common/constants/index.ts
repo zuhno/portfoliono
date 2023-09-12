@@ -132,7 +132,7 @@ export const stats = [
   {
     id: "stat-luk",
     label: "LUK",
-    description: "살아온 인생중 운빨 비율",
+    description: "살아온 인생중 운빨량",
     value: 45,
     max: 100,
   },
