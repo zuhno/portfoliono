@@ -41,6 +41,7 @@ module.exports = {
   rules: {
     "import/no-default-export": "off",
     "no-console": "off",
+    "no-unused-vars": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/ban-types": "warn",
     "@typescript-eslint/no-namespace": "off",

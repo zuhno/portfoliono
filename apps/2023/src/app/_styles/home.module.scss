@@ -243,5 +243,80 @@
     position: relative;
     width: inherit;
     height: inherit;
+
+    .work-history-balloon {
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      max-width: 300px;
+      height: 200px;
+      padding: 20px;
+      color: variables.$root-bg;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      white-space: pre;
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.3s linear;
+
+      &--hide {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+    }
+
+    .career-btns {
+      position: absolute;
+      z-index: 3;
+      top: 15px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      filter: drop-shadow(0 0 3px #a8a8a8);
+
+      &::before {
+        position: absolute;
+        z-index: -1;
+        content: "";
+        width: 100%;
+        height: 3px;
+        background-color: variables.$border-color;
+      }
+
+      button {
+        @include mixins.square-box(30px);
+
+        cursor: pointer;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+        border-radius: 50%;
+        border: 2px solid variables.$border-color;
+        font-weight: 700;
+        color: variables.$font-color;
+        background-color: variables.$card-bg;
+
+        &.button--active {
+          color: variables.$card-bg;
+          background-color: variables.$font-color;
+        }
+
+        &:hover {
+          border-color: variables.$loader;
+        }
+
+        &:not(:last-of-type) {
+          margin-right: 20px;
+        }
+
+        &:disabled {
+          filter: grayscale(100%);
+        }
+      }
+    }
   }
 }

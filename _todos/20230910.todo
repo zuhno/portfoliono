@@ -2,5 +2,6 @@ Todos:
   Project:
     2023:
       css:
-        ☐ section 01 styling
+        ✔ section 01 styling @done(23-09-13 01:57)
+        ✘ section 02 styling @cancelled(23-09-13 01:57)
       

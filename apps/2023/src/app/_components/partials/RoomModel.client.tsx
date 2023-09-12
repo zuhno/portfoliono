@@ -14,13 +14,14 @@ useGLTF.preload(RESOURCE_PATH);
 interface IProps {
   isInit: boolean;
   isFlight: boolean;
+  onArrived: () => void;
 }
 
 /**
  * @constant camera_position [10, 6, 10]
  * @constant camera_near 0.1
  */
-const RoomModel = ({ isInit, isFlight }: IProps) => {
+const RoomModel = ({ isInit, isFlight, onArrived }: IProps) => {
   const { scene, animations } = useGLTF(RESOURCE_PATH);
   const { actions } = useAnimateWrapper(animations, scene);
 
@@ -33,13 +34,14 @@ const RoomModel = ({ isInit, isFlight }: IProps) => {
       clip?.stop();
     });
 
-    landClips.forEach(([_, clip]) => {
+    landClips.forEach(([_, clip], idx) => {
       clip
         ?.setLoop(LoopOnce, 1)
         .setDuration(4)
         .play()
         .onFinish(() => {
           clip.stop();
+          if (idx === landClips.length - 1) onArrived();
         });
     });
   };
@@ -71,7 +73,6 @@ const RoomModel = ({ isInit, isFlight }: IProps) => {
         .onFinish(() => {
           actions.armature_falling?.stop();
           actions.armature_typing?.setDuration(1.5).play();
-          console.log(123);
         });
     }, 0);
   };

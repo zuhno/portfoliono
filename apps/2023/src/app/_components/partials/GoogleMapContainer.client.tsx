@@ -19,10 +19,13 @@ interface IProps {
 }
 
 const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
-  const [coordinate, setCoordinate] = useState<CompaniesCoordinate>(
-    companiesCoordinate["nomad-coders"]
-  );
-  const [zoom, setZoom] = useState(20);
+  const baseZoom = 20;
+
+  const [coordinate, setCoordinate] = useState<CompaniesCoordinate>({
+    ...companiesCoordinate["nomad-coders"],
+    lat: companiesCoordinate["nomad-coders"].lat + 0.00033,
+  });
+  const [zoom, setZoom] = useState(baseZoom);
 
   const renderMarker = useCallback(({ map, maps }) => {
     Object.entries(companiesCoordinate).forEach(([key, value]) => {
@@ -39,7 +42,7 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
   }, []);
 
   function* zoomGenerateSequence(type: "increase" | "decrease") {
-    const limit = 3;
+    const limit = 8;
     const increment = 0.1;
 
     const promises: any[] = [];
@@ -50,7 +53,7 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
     ) {
       promises.push(
         yield new Promise((r) => {
-          setTimeout(() => r(setZoom(20 - i)), i * 10);
+          setTimeout(() => r(setZoom(baseZoom - i)), i * 10);
         })
       );
     }
@@ -70,7 +73,7 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
 
   const onFlight = async (to: CompaniesCoordinate) => {
     await zoomOut();
-    setCoordinate(to);
+    setCoordinate({ ...to, lat: to.lat + 0.00033 });
     await zoomIn();
   };
 
@@ -79,6 +82,7 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
     if (toItam) onFlight(companiesCoordinate.itamgames).catch(() => {});
     if (toMW) onFlight(companiesCoordinate["metaverse-world"]).catch(() => {});
     if (toLab) onFlight(companiesCoordinate.quest3).catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- .
   }, [toHome, toItam, toMW, toLab]);
 
   return (
@@ -86,8 +90,6 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY }}
         center={coordinate}
-        defaultCenter={companiesCoordinate["nomad-coders"]}
-        defaultZoom={20}
         onGoogleApiLoaded={renderMarker}
         options={googleMapDarkThemeConfig}
         yesIWantToUseGoogleMapApiInternals
