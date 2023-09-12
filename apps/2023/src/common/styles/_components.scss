@@ -1,0 +1,39 @@
+@use "variables";
+@use "animations";
+
+.loader-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .ring {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto;
+    border: 4px solid variables.$loader;
+    border-radius: 100%;
+    transform: scale(0.5);
+
+    & .ball-holder {
+      position: absolute;
+      width: 12px;
+      height: 45px;
+      left: 17px;
+      top: 0px;
+      @include animations.rotation-animation(1.3s);
+
+      & .ball {
+        position: absolute;
+        top: -11px;
+        left: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 100%;
+        background: variables.$loader;
+      }
+    }
+  }
+}

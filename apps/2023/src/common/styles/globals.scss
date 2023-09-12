@@ -1,6 +1,8 @@
 @use "reset";
 @use "variables";
 @use "mixins";
+@use "components";
+@use "animations";
 
 html {
   background-color: variables.$root-bg;

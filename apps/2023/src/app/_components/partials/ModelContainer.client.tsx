@@ -4,6 +4,8 @@ import { Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei
 import { Canvas, type Vector3 } from "@react-three/fiber";
 import { type PropsWithChildren, Suspense } from "react";
 
+import Loader from "@common/components/Loader.client";
+
 import homeStyles from "../../_styles/home.module.scss";
 
 interface IProps {
@@ -14,7 +16,7 @@ interface IProps {
 const ModelContainer = ({ children, cameraNear, cameraPosition }: PropsWithChildren<IProps>) => {
   return (
     <div className={homeStyles["model-container"]}>
-      <Suspense fallback={<span style={{ color: "white" }}>loading...</span>}>
+      <Suspense fallback={<Loader />}>
         <Canvas>
           <PerspectiveCamera
             far={1000}
