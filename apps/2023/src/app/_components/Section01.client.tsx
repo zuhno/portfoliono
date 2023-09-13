@@ -66,7 +66,7 @@ const Section01 = () => {
                 </li>
                 <li>
                   <div>Hobby</div>
-                  <p>webtoon, boxing, modeling(blender)</p>
+                  <p>웹툰, 복싱, 3D 모델링(blender)</p>
                 </li>
                 <li>
                   <div>Career</div>

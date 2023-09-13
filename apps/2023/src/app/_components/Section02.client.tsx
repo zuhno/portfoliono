@@ -5,6 +5,8 @@ import { useInView } from "framer-motion";
 import { type SyntheticEvent, useRef, useState } from "react";
 import { Tooltip } from "react-tooltip";
 
+import { careerHistory } from "@common/constants";
+
 import homeStyles from "../_styles/home.module.scss";
 
 import GoogleMapContainer from "./partials/GoogleMapContainer.client";
@@ -22,11 +24,12 @@ const baseDestination = { toHome: false, toItam: false, toLab: false, toMW: fals
 
 const Section02 = () => {
   const ref = useRef(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
   const isInView = useInView(ref, { once: true });
   const [destination, setDestination] = useState(baseDestination);
   const [location, setLocation] = useState<ELocation>(ELocation.NOMAD_CODERS);
   const [isFlight, setIsFlight] = useState(false);
-  const [workHistoryTxt, setWorkHistoryTxt] = useState("nomad-coders");
+  const [workHistoryTxt, setWorkHistoryTxt] = useState(careerHistory[ELocation.NOMAD_CODERS]);
 
   const flightTrigger = (e: SyntheticEvent<HTMLButtonElement>) => {
     const { tooltipId } = (e.target as HTMLButtonElement).dataset as { tooltipId: ELocation };
@@ -60,26 +63,16 @@ const Section02 = () => {
   };
 
   const changeBalloonText = () => {
-    switch (location) {
-      case ELocation.NOMAD_CODERS:
-        setWorkHistoryTxt("nomad-coders");
-        break;
-      case ELocation.ITAMGAMES:
-        setWorkHistoryTxt("itamgames");
-        break;
-      case ELocation.METAVERSE_WORLD:
-        setWorkHistoryTxt("metaverse-world");
-        break;
-      case ELocation.QUEST3:
-        setWorkHistoryTxt("quest3");
-        break;
-      default:
-        break;
-    }
+    setWorkHistoryTxt(careerHistory[location]);
+  };
+
+  const balloonScrollReset = () => {
+    textRef.current?.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const onArrived = () => {
     setIsFlight(false);
+    balloonScrollReset();
     changeBalloonText();
   };
 
@@ -97,13 +90,8 @@ const Section02 = () => {
             <RoomModel isFlight={isFlight} isInit={isInView} onArrived={onArrived} />
           </ModelContainer>
 
-          <div
-            className={clsx(
-              homeStyles["work-history-balloon"],
-              isFlight && homeStyles["work-history-balloon--hide"]
-            )}
-          >
-            {workHistoryTxt}
+          <div className={clsx(homeStyles["work-history-balloon"], isFlight && homeStyles.hide)}>
+            <p ref={textRef}>{workHistoryTxt}</p>
           </div>
 
           <div className={homeStyles["career-btns"]}>

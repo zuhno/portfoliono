@@ -247,23 +247,48 @@
     .work-history-balloon {
       position: absolute;
       z-index: 3;
-      top: 0;
+      top: -40%;
       right: 0;
       bottom: 0;
       left: 0;
       margin: auto;
-      max-width: 300px;
-      height: 200px;
+      width: fit-content;
+      height: fit-content;
       padding: 20px;
       color: variables.$root-bg;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: #ffffff;
       border-radius: 10px;
-      white-space: pre;
       opacity: 1;
       transform: translateY(0);
       transition: all 0.3s linear;
+      box-shadow: inset 0 2px 5px rgb(58, 58, 58);
+      filter: drop-shadow(0 5px 10px rgb(58, 58, 58));
 
-      &--hide {
+      p {
+        max-width: 300px;
+        max-height: 200px;
+        width: 100%;
+        height: fit-content;
+        padding-right: 10px;
+        white-space: pre-wrap;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        line-height: 110%;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        bottom: -4%;
+        left: 15%;
+        width: 20px;
+        height: 20px;
+        background-color: #ffffff;
+        transform: rotate(45deg);
+      }
+
+      &.hide {
         opacity: 0;
         transform: translateY(-10px);
       }
@@ -318,5 +343,8 @@
         }
       }
     }
+  }
+
+  .section03 {
   }
 }
