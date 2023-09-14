@@ -1,0 +1,116 @@
+@use "variables";
+@use "mixins";
+
+.section02 {
+  position: relative;
+  width: inherit;
+  height: inherit;
+
+  .map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .work-history-balloon {
+    position: absolute;
+    z-index: 3;
+    top: -42%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    color: variables.$root-bg;
+    background-color: #ffffff;
+    border-radius: 10px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s linear;
+    box-shadow: inset 0 2px 5px rgb(58, 58, 58);
+    filter: drop-shadow(0 5px 10px rgb(58, 58, 58));
+
+    p {
+      max-width: 300px;
+      max-height: 200px;
+      width: 100%;
+      height: fit-content;
+      padding: 5px 10px 5px 0;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      line-height: 110%;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      bottom: -4%;
+      left: 15%;
+      width: 20px;
+      height: 20px;
+      background-color: #ffffff;
+      transform: rotate(45deg);
+    }
+
+    &.hide {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+
+  .career-btns {
+    position: absolute;
+    z-index: 3;
+    top: 15px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(0 0 3px #a8a8a8);
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      width: 100%;
+      height: 3px;
+      background-color: variables.$border-color;
+    }
+
+    button {
+      @include mixins.square-box(30px);
+
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      border-radius: 50%;
+      border: 2px solid variables.$border-color;
+      font-weight: 700;
+      color: variables.$font-color;
+      background-color: variables.$card-bg;
+
+      &.button--active {
+        color: variables.$card-bg;
+        background-color: variables.$font-color;
+      }
+
+      &:hover {
+        border-color: variables.$loader;
+      }
+
+      &:not(:last-of-type) {
+        margin-right: 20px;
+      }
+
+      &:disabled {
+        filter: grayscale(100%);
+      }
+    }
+  }
+}

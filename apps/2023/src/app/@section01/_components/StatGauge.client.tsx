@@ -2,8 +2,6 @@
 
 import { useMemo } from "react";
 
-import homeStyles from "../../_styles/home.module.scss";
-
 interface IProps {
   id: string;
   description: string;
@@ -16,9 +14,9 @@ const StatGauge = ({ id, description, label, value, max }: IProps) => {
   const percent = useMemo(() => Math.floor((value / max) * 100), [value, max]);
 
   return (
-    <div className={homeStyles.stat__gauge} data-tooltip-content={description} data-tooltip-id={id}>
-      <div className={homeStyles["stat__gauge--label"]}>{label}</div>
-      <div className={homeStyles["stat__gauge--bar"]}>
+    <div className="stat__gauge" data-tooltip-content={description} data-tooltip-id={id}>
+      <div className="stat__gauge--label">{label}</div>
+      <div className="stat__gauge--bar">
         <div
           style={{
             width: `${percent}%`,

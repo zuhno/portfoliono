@@ -1,33 +1,33 @@
 "use client";
 
+import "./_styles/page.scss";
+
 import { Tooltip } from "react-tooltip";
 
+import ModelContainer from "@common/components/ModelContainer.client";
 import { stats } from "@common/constants";
 
-import homeStyles from "../_styles/home.module.scss";
-
-import ArmatureModel from "./partials/ArmatureModel.client";
-import ModelContainer from "./partials/ModelContainer.client";
-import StatBadge from "./partials/StatBadge.client";
-import StatGauge from "./partials/StatGauge.client";
+import ArmatureModel from "./_components/ArmatureModel.client";
+import StatBadge from "./_components/StatBadge.client";
+import StatGauge from "./_components/StatGauge.client";
 
 const Section01 = () => {
   const [hpStat, ...restStats] = stats;
   return (
     <>
-      <div className={homeStyles["section-container"]}>
-        <div className={homeStyles.section}>
-          <div className={homeStyles.section01}>
-            <div className={homeStyles["armature-view-container"]}>
+      <div className="section-container" id="#info">
+        <div className="section">
+          <div className="section01">
+            <div className="armature-view-container">
               <ModelContainer cameraPosition={[0, 0, 17]}>
                 <ArmatureModel />
               </ModelContainer>
-              <div className={homeStyles.property}>
+              <div className="property">
                 {/* eslint-disable-next-line @next/next/no-img-element -- too small thing. */}
                 <img alt="property" src="/image/water.svg" />
               </div>
             </div>
-            <div className={homeStyles.stat}>
+            <div className="stat">
               <StatGauge
                 description={hpStat.description}
                 id={hpStat.id}
@@ -35,8 +35,8 @@ const Section01 = () => {
                 max={hpStat.max}
                 value={hpStat.value}
               />
-              <p className={homeStyles["stat__badge-title"]}>Status</p>
-              <div className={homeStyles["stat__badge-container"]}>
+              <p className="stat__badge-title">Status</p>
+              <div className="stat__badge-container">
                 {restStats.map((stat) => (
                   <StatBadge
                     description={stat.description}
@@ -48,8 +48,8 @@ const Section01 = () => {
                 ))}
               </div>
             </div>
-            <div className={homeStyles.nick}>Cuttleman</div>
-            <div className={homeStyles.info}>
+            <div className="nick">Cuttleman</div>
+            <div className="info">
               <ul>
                 <li>
                   <div>Why Cuttleman?</div>

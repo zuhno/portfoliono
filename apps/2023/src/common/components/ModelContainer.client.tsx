@@ -6,8 +6,6 @@ import { type PropsWithChildren, Suspense } from "react";
 
 import Loader from "@common/components/Loader.client";
 
-import homeStyles from "../../_styles/home.module.scss";
-
 interface IProps {
   cameraNear?: number;
   cameraPosition?: Vector3;
@@ -15,7 +13,7 @@ interface IProps {
 
 const ModelContainer = ({ children, cameraNear, cameraPosition }: PropsWithChildren<IProps>) => {
   return (
-    <div className={homeStyles["model-container"]}>
+    <div className="model-container">
       <Suspense fallback={<Loader />}>
         <Canvas>
           <PerspectiveCamera

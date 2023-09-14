@@ -1,17 +1,17 @@
 "use client";
 
+import "./_styles/page.scss";
+
 import clsx from "clsx";
 import { useInView } from "framer-motion";
 import { type SyntheticEvent, useRef, useState } from "react";
 import { Tooltip } from "react-tooltip";
 
+import ModelContainer from "@common/components/ModelContainer.client";
 import { careerHistory } from "@common/constants";
 
-import homeStyles from "../_styles/home.module.scss";
-
-import GoogleMapContainer from "./partials/GoogleMapContainer.client";
-import ModelContainer from "./partials/ModelContainer.client";
-import RoomModel from "./partials/RoomModel.client";
+import GoogleMapContainer from "./_components/GoogleMapContainer.client";
+import RoomModel from "./_components/RoomModel.client";
 
 enum ELocation {
   NOMAD_CODERS = "nomad-coders",
@@ -77,9 +77,9 @@ const Section02 = () => {
   };
 
   return (
-    <div className={homeStyles["section-container"]} ref={ref}>
-      <div className={homeStyles.section}>
-        <div className={homeStyles.section02}>
+    <div className="section-container" id="#map" ref={ref}>
+      <div className="section">
+        <div className="section02">
           <GoogleMapContainer
             toHome={destination.toHome}
             toItam={destination.toItam}
@@ -90,13 +90,13 @@ const Section02 = () => {
             <RoomModel isFlight={isFlight} isInit={isInView} onArrived={onArrived} />
           </ModelContainer>
 
-          <div className={clsx(homeStyles["work-history-balloon"], isFlight && homeStyles.hide)}>
+          <div className={clsx("work-history-balloon", isFlight && "hide")}>
             <p ref={textRef}>{workHistoryTxt}</p>
           </div>
 
-          <div className={homeStyles["career-btns"]}>
+          <div className="career-btns">
             <button
-              className={location === ELocation.NOMAD_CODERS ? homeStyles["button--active"] : ""}
+              className={location === ELocation.NOMAD_CODERS ? "button--active" : ""}
               data-tooltip-content="flight to home"
               data-tooltip-id={ELocation.NOMAD_CODERS}
               onClick={flightTrigger}
@@ -106,7 +106,7 @@ const Section02 = () => {
             </button>
             <Tooltip id={ELocation.NOMAD_CODERS} />
             <button
-              className={location === ELocation.ITAMGAMES ? homeStyles["button--active"] : ""}
+              className={location === ELocation.ITAMGAMES ? "button--active" : ""}
               data-tooltip-content="flight to itamgames"
               data-tooltip-id={ELocation.ITAMGAMES}
               onClick={flightTrigger}
@@ -116,7 +116,7 @@ const Section02 = () => {
             </button>
             <Tooltip id={ELocation.ITAMGAMES} />
             <button
-              className={location === ELocation.METAVERSE_WORLD ? homeStyles["button--active"] : ""}
+              className={location === ELocation.METAVERSE_WORLD ? "button--active" : ""}
               data-tooltip-content="flight to metaverse world"
               data-tooltip-id={ELocation.METAVERSE_WORLD}
               onClick={flightTrigger}
@@ -126,7 +126,7 @@ const Section02 = () => {
             </button>
             <Tooltip id={ELocation.METAVERSE_WORLD} />
             <button
-              className={location === ELocation.QUEST3 ? homeStyles["button--active"] : ""}
+              className={location === ELocation.QUEST3 ? "button--active" : ""}
               data-tooltip-content="flight quest3"
               data-tooltip-id={ELocation.QUEST3}
               onClick={flightTrigger}

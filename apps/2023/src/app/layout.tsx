@@ -1,7 +1,6 @@
 import "@common/styles/globals.scss";
 
-import SideNavBar from "./_components/SideNavBar.client";
-import homeStyles from "./_styles/home.module.scss";
+import SideNavBar from "@common/components/SideNavBar.client";
 
 import type { Metadata } from "next";
 
@@ -10,12 +9,16 @@ export const metadata: Metadata = {
   description: "2023 Portfolio by cuttleman",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout(props) {
   return (
     <html lang="ko">
       <body>
         <SideNavBar />
-        <main className={homeStyles.main}>{children}</main>
+        <main>
+          {props.section01}
+          {props.section02}
+          {props.section03}
+        </main>
       </body>
     </html>
   );

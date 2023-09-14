@@ -9,8 +9,6 @@ import {
   googleMapDarkThemeConfig,
 } from "@common/constants";
 
-import homeStyles from "../../_styles/home.module.scss";
-
 interface IProps {
   toHome: boolean;
   toItam: boolean;
@@ -86,7 +84,7 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
   }, [toHome, toItam, toMW, toLab]);
 
   return (
-    <div className={homeStyles["map-container"]}>
+    <div className="map-container">
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY }}
         center={coordinate}
