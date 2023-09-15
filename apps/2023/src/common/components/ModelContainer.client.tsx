@@ -2,7 +2,7 @@
 
 import { Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas, type Vector3 } from "@react-three/fiber";
-import { type PropsWithChildren, Suspense } from "react";
+import React, { type PropsWithChildren } from "react";
 
 import Loader from "@common/components/Loader.client";
 
@@ -14,7 +14,7 @@ interface IProps {
 const ModelContainer = ({ children, cameraNear, cameraPosition }: PropsWithChildren<IProps>) => {
   return (
     <div className="model-container">
-      <Suspense fallback={<Loader />}>
+      <React.Suspense fallback={<Loader />}>
         <Canvas>
           <PerspectiveCamera
             far={1000}
@@ -33,7 +33,7 @@ const ModelContainer = ({ children, cameraNear, cameraPosition }: PropsWithChild
           />
           <Environment preset="forest" />
         </Canvas>
-      </Suspense>
+      </React.Suspense>
     </div>
   );
 };
