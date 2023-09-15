@@ -18,7 +18,14 @@
   }
   @include mixins.mobile {
     width: 90%;
+    grid-template-areas:
+      "model"
+      "nick"
+      "stat"
+      "info";
+    grid-template-columns: 1fr;
     gap: 20px;
+    padding: 30px 0;
   }
 
   .stat {
@@ -32,7 +39,7 @@
       @include mixins.card(15px, 20px);
     }
     @include mixins.mobile {
-      @include mixins.card(15px, 10px);
+      @include mixins.card(15px, 20px);
     }
 
     &__gauge {
@@ -133,6 +140,10 @@
     margin-bottom: -15px;
 
     @include mixins.rectangle-box;
+
+    @include mixins.mobile {
+      margin-bottom: 10px;
+    }
   }
 
   .armature-view-container {
@@ -164,7 +175,7 @@
       @include mixins.card(15px, 20px);
     }
     @include mixins.mobile {
-      @include mixins.card(15px, 10px);
+      @include mixins.card(15px, 20px);
     }
 
     ul {

@@ -41,6 +41,14 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+@mixin media-hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
 // responsive
 @mixin mobile {
   @media (min-width: variables.$breakpoint-mobile) and (max-width: (variables.$breakpoint-tablet - 1px)) {

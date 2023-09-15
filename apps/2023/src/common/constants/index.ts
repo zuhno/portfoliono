@@ -179,7 +179,7 @@ export const stats = [
 
 export const careerHistory = {
   "nomad-coders":
-    "Nomad Coders lecture\n\n2019.12 ~ 2021.08\n\npublishing, reactjs, typescript, nodejs 공부.\n\n코로나 발발후 알바와 공부를 병행하며 약 3년간 독학.",
+    "Nomad Coders lecture\n\n2019.12 ~ 2021.08\n\n기술 스택\n\n- html + css, reactjs, typescript, nodejs\n\n코로나 발생후 약 2년간 알바와 공부를 병행.",
   itamgames:
     "Itamgames Corp.\n\n2021.09 ~ 2021.12\n\n게임에 블록체인을 붙이기위한 미들웨어 서비스 제공.\n\n기술 스택\n\n- react@16, sass + emotion, contextAPI\n\n개발 내역\n\n- 네트워크간 토큰을 스왑시키는 브릿지 서비스 프론트 개발\n\n- 스테이킹풀(토큰 및 게임아이템 예치) 서비스 프론트 개발\n\n- 리스트 가상스크롤로 성능 최적화",
   "metaverse-world":

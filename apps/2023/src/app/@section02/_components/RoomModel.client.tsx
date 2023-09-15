@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { LoopOnce } from "three";
 
 import useAnimateWrapper from "@common/hooks/useAnimateWrapper";
+import useMediaQuery from "@common/hooks/useMediaQuery";
 import { sleep } from "@common/utils/timer";
 
 const RESOURCE_PATH = "/model/portfolio_room.glb";
@@ -24,6 +25,7 @@ interface IProps {
 const RoomModel = ({ isInit, isFlight, onArrived }: IProps) => {
   const { scene, animations } = useGLTF(RESOURCE_PATH);
   const { actions } = useAnimateWrapper(animations, scene);
+  const { isMobile } = useMediaQuery();
 
   // room 모델 착륙
   const landAnimate = () => {
@@ -79,7 +81,7 @@ const RoomModel = ({ isInit, isFlight, onArrived }: IProps) => {
 
   const onFlight = async () => {
     takeoffAnimate();
-    await sleep(6500);
+    await sleep(isMobile ? 8000 : 6500);
     landAnimate();
   };
 
@@ -91,7 +93,7 @@ const RoomModel = ({ isInit, isFlight, onArrived }: IProps) => {
     if (isFlight) onFlight().catch(() => {});
   }, [isFlight]);
 
-  return <primitive object={scene} scale={0.8} />;
+  return <primitive object={scene} scale={isMobile ? 0.7 : 0.8} />;
 };
 
 export default RoomModel;

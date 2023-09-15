@@ -6,6 +6,11 @@
   width: inherit;
   height: inherit;
 
+  @include mixins.mobile {
+    width: 100%;
+    height: calc(100.1vh - var(--nav-size));
+  }
+
   .map-container {
     position: absolute;
     top: 0;
@@ -33,6 +38,11 @@
     transition: all 0.3s linear;
     filter: drop-shadow(0 5px 10px rgb(58, 58, 58));
 
+    @include mixins.mobile {
+      top: -40%;
+      padding: 15px;
+    }
+
     p {
       max-width: 300px;
       max-height: 200px;
@@ -43,6 +53,18 @@
       overflow-y: auto;
       overscroll-behavior: contain;
       line-height: 110%;
+      box-sizing: border-box;
+
+      @include mixins.tablet {
+        max-width: 250px;
+        max-height: 130px;
+        padding: 5px 5px 5px 0;
+      }
+      @include mixins.mobile {
+        max-width: 230px;
+        max-height: 100px;
+        padding: 5px 5px 5px 0;
+      }
     }
 
     &::before {

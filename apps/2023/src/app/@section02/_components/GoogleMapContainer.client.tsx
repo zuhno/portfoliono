@@ -1,15 +1,16 @@
 "use client";
 
 import GoogleMapReact from "google-map-react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 
 import {
   type CompaniesCoordinate,
-  companiesCoordinate,
+  companiesCoordinate as companiesOriginCoordinate,
   googleMapDarkThemeConfig,
   googleMapLightThemeConfig,
 } from "@common/constants";
 import { ETheme, useTheme } from "@common/contexts/ThemeProvider";
+import useMediaQuery from "@common/hooks/useMediaQuery";
 
 interface IProps {
   toHome: boolean;
@@ -21,15 +22,26 @@ interface IProps {
 const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
   const baseZoom = 20;
 
-  const [coordinate, setCoordinate] = useState<CompaniesCoordinate>({
-    ...companiesCoordinate["nomad-coders"],
-    lat: companiesCoordinate["nomad-coders"].lat + 0.00033,
-  });
+  const { isMobile } = useMediaQuery();
+  const companiesCenterCoordinate = useMemo(
+    () =>
+      Object.entries(companiesOriginCoordinate).reduce(
+        (acc, [key, value]) => ({
+          ...acc,
+          [key]: { ...value, lat: value.lat + 0.0003 },
+        }),
+        {}
+      ) as typeof companiesOriginCoordinate,
+    []
+  );
+  const [coordinate, setCoordinate] = useState<CompaniesCoordinate>(
+    companiesCenterCoordinate["nomad-coders"]
+  );
   const [zoom, setZoom] = useState(baseZoom);
   const { theme } = useTheme();
 
   const renderMarker = useCallback(({ map, maps }) => {
-    Object.entries(companiesCoordinate).forEach(([key, value]) => {
+    Object.entries(companiesOriginCoordinate).forEach(([key, value]) => {
       // eslint-disable-next-line no-new -- .
       new maps.Marker({
         position: {
@@ -43,7 +55,8 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
   }, []);
 
   function* zoomGenerateSequence(type: "increase" | "decrease") {
-    const limit = 8;
+    let limit = 8;
+    if (isMobile) limit = 9;
     const increment = 0.1;
 
     const promises: any[] = [];
@@ -74,16 +87,15 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
 
   const onFlight = async (to: CompaniesCoordinate) => {
     await zoomOut();
-    setCoordinate({ ...to, lat: to.lat + 0.00033 });
+    setCoordinate({ ...to, lat: to.lat });
     await zoomIn();
   };
 
   useEffect(() => {
-    if (toHome) onFlight(companiesCoordinate["nomad-coders"]).catch(() => {});
-    if (toItam) onFlight(companiesCoordinate.itamgames).catch(() => {});
-    if (toMW) onFlight(companiesCoordinate["metaverse-world"]).catch(() => {});
-    if (toLab) onFlight(companiesCoordinate.quest3).catch(() => {});
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- .
+    if (toHome) onFlight(companiesCenterCoordinate["nomad-coders"]).catch(() => {});
+    if (toItam) onFlight(companiesCenterCoordinate.itamgames).catch(() => {});
+    if (toMW) onFlight(companiesCenterCoordinate["metaverse-world"]).catch(() => {});
+    if (toLab) onFlight(companiesCenterCoordinate.quest3).catch(() => {});
   }, [toHome, toItam, toMW, toLab]);
 
   return (

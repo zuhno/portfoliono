@@ -11,6 +11,7 @@ import StatGauge from "./_components/StatGauge.client";
 
 const Section01 = () => {
   const [hpStat, ...restStats] = stats;
+
   return (
     <div className="section-container" id="info">
       <div className="section">

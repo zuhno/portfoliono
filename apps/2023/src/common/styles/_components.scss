@@ -5,14 +5,27 @@
 main {
   @include mixins.snap-scroll-parent;
 
-  width: calc(100% - var(--aside-width));
-  margin-left: var(--aside-width);
+  width: calc(100% - var(--nav-size));
+  margin-left: var(--nav-size);
+
+  @include mixins.mobile {
+    max-height: 100%;
+    scroll-snap-type: none;
+    width: 100%;
+    max-height: calc(100vh - var(--nav-size));
+    margin-left: 0;
+    margin-top: var(--nav-size);
+  }
 }
 
 .section-container {
   @include mixins.snap-scroll-child;
 
   width: 100%;
+
+  @include mixins.mobile {
+    height: 100%;
+  }
 }
 
 nav {
@@ -22,18 +35,35 @@ nav {
   z-index: 2;
   background-color: var(--card-bg);
   border-right: 1px solid var(--border-color);
-  width: var(--aside-width);
+  width: var(--nav-size);
   height: 100vh;
   display: grid;
   grid-template-rows: 100px 2fr 0.3fr;
   justify-content: center;
   padding: 20px 0;
+  box-sizing: border-box;
+
+  @include mixins.mobile {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    height: var(--nav-size);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
 
   .logo {
     width: 50px;
     height: 50px;
 
     @include mixins.no-highlight-tap;
+
+    @include mixins.mobile {
+      width: 30px;
+      height: 30px;
+    }
 
     img {
       width: 100%;
@@ -48,18 +78,22 @@ nav {
 
     @include mixins.no-highlight-tap;
 
+    @include mixins.mobile {
+      display: none;
+    }
+
     li {
       height: fit-content;
-      color: #8e97a8;
+      color: var(--icon-color);
       transition: color 0.2s;
 
       &.active {
         color: #9d79b9;
       }
 
-      @media (hover: hover) {
-        &:hover:not(.active) {
-          color: #cbd1db;
+      @include mixins.media-hover {
+        &:not(.active) {
+          color: var(--icon-hover-color);
         }
       }
 
@@ -89,10 +123,17 @@ nav {
   .toggle-theme {
     display: flex;
     justify-content: center;
+    align-self: flex-end;
+
+    @include mixins.mobile {
+      align-self: center;
+    }
 
     button {
       padding: 5px;
       height: fit-content;
+
+      @include mixins.no-highlight-tap;
 
       &.dark {
         color: rgb(240, 227, 107);
@@ -104,6 +145,11 @@ nav {
       svg {
         width: 30px;
         height: 30px;
+
+        @include mixins.mobile {
+          width: 20px;
+          height: 20px;
+        }
       }
     }
   }

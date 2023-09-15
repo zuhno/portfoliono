@@ -2,25 +2,71 @@
 
 .section03 {
   width: 80%;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
 
-  .retrospect {
+  @include mixins.mobile {
+    width: 90%;
+    height: calc(100.1vh - var(--nav-size));
+    gap: 40px;
+  }
+
+  img {
+    width: auto;
+    height: 50%;
+
+    @include mixins.mobile {
+      width: 50%;
+      height: auto;
+    }
+  }
+
+  .contact {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     .title {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
+
+      @include mixins.mobile {
+        margin-bottom: 30px;
+      }
     }
 
-    p {
-      @include mixins.card(15px, 30px);
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 40px;
 
-      @include mixins.tablet {
-        @include mixins.card(15px, 20px);
-      }
-      @include mixins.mobile {
-        @include mixins.card(15px, 10px);
-      }
+      li {
+        a {
+          padding: 5px;
+          color: var(--icon-color);
+          transition: color 0.2s;
 
-      font-size: 1.2rem;
+          @include mixins.media-hover {
+            color: var(--icon-hover-color);
+          }
+
+          svg {
+            width: 50px;
+            height: 50px;
+
+            @include mixins.mobile {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
     }
   }
 }

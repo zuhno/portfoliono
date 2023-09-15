@@ -13,7 +13,7 @@ import { ETheme, useTheme } from "@common/contexts/ThemeProvider";
 
 import logoIcon from "../../app/icon.png";
 
-const SideNavBar = () => {
+const NavBar = () => {
   const [activeTab, setActiveTab] = useState("");
   const { theme, changeTheme } = useTheme();
 
@@ -79,7 +79,6 @@ const SideNavBar = () => {
     return () => {
       observer.disconnect();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- .
   }, []);
 
   return (
@@ -133,4 +132,4 @@ const SideNavBar = () => {
   );
 };
 
-export default SideNavBar;
+export default NavBar;

@@ -5,9 +5,12 @@
 @use "animations";
 
 :root {
-  --aside-width: 70px;
+  --nav-size: 70px;
   @include mixins.tablet {
-    --aside-width: 50px;
+    --nav-size: 50px;
+  }
+  @include mixins.mobile {
+    --nav-size: 40px;
   }
 }
 
@@ -27,12 +30,14 @@ html {
       --purple: rgb(105, 64, 162);
       --orange: rgb(184, 104, 71);
       --blue: rgb(59, 72, 166);
+      --icon-color: #8e97a8;
+      --icon-hover-color: #cbd1db;
     }
 
     &.light {
       --root-bg: #ebebeb;
       --card-bg: #f7f7f7;
-      --border-color: #efefef;
+      --border-color: #e2e2e2;
       --font-color: #000000;
       --loader-color: #2b2b2b;
       --red: rgb(192, 84, 84);
@@ -41,6 +46,8 @@ html {
       --purple: rgb(157, 117, 212);
       --orange: rgb(226, 145, 111);
       --blue: rgb(125, 138, 236);
+      --icon-color: #818997;
+      --icon-hover-color: #4f5257;
     }
 
     background-color: var(--root-bg);

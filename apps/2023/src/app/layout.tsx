@@ -1,6 +1,6 @@
 import "@common/styles/globals.scss";
 
-import SideNavBar from "@common/components/SideNavBar.client";
+import NavBar from "@common/components/NavBar.client";
 import ThemeProvider from "@common/contexts/ThemeProvider";
 
 import type { Metadata } from "next";
@@ -15,7 +15,7 @@ export default function RootLayout(props) {
     <html lang="ko">
       <body className="dark">
         <ThemeProvider>
-          <SideNavBar />
+          <NavBar />
           <main>
             {props.section01}
             {props.section02}
