@@ -83,10 +83,9 @@
 
     button {
       @include mixins.square-box(30px);
+      @include mixins.no-highlight-tap;
 
       cursor: pointer;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
       outline: none;
       border-radius: 50%;
       border: 2px solid var(--border-color);

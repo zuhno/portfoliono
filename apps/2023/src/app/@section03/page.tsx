@@ -4,7 +4,7 @@ import "./_styles/page.scss";
 
 const Section03 = () => {
   return (
-    <div className="section-container" id="#contact">
+    <div className="section-container" id="contact">
       <div className="section">
         <div className="section03">
           <div className="retrospect">

@@ -77,7 +77,7 @@ const Section02 = () => {
   };
 
   return (
-    <div className="section-container" id="#map" ref={ref}>
+    <div className="section-container" id="career" ref={ref}>
       <div className="section">
         <div className="section02">
           <GoogleMapContainer

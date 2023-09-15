@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import { Tooltip } from "react-tooltip";
 
 interface IProps {
   id: string;
@@ -11,12 +12,15 @@ interface IProps {
 
 const StatBadge = ({ id, description, label, value }: IProps) => {
   return (
-    <div className="stat__badge" data-tooltip-content={description} data-tooltip-id={id}>
-      <div className={clsx("stat__badge--label", `stat__badge--label--${id}`)}>
-        <span>{label}</span>
+    <>
+      <div className="stat__badge" data-tooltip-content={description} data-tooltip-id={id}>
+        <div className={clsx("stat__badge--label", `stat__badge--label--${id}`)}>
+          <span>{label}</span>
+        </div>
+        <div className="stat__badge--value">{value}</div>
       </div>
-      <div className="stat__badge--value">{value}</div>
-    </div>
+      <Tooltip id={id} />
+    </>
   );
 };
 

@@ -7,7 +7,7 @@
 :root {
   --aside-width: 70px;
   @include mixins.tablet {
-    --aside-width: 30px;
+    --aside-width: 50px;
   }
 }
 
