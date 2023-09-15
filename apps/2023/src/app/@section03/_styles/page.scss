@@ -1,2 +1,26 @@
+@use "mixins";
+
 .section03 {
+  width: 80%;
+
+  .retrospect {
+    .title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    p {
+      @include mixins.card(15px, 30px);
+
+      @include mixins.tablet {
+        @include mixins.card(15px, 20px);
+      }
+      @include mixins.mobile {
+        @include mixins.card(15px, 10px);
+      }
+
+      font-size: 1.2rem;
+    }
+  }
 }

@@ -25,13 +25,12 @@
     width: fit-content;
     height: fit-content;
     padding: 20px;
-    color: variables.$root-bg;
+    color: #000000;
     background-color: #ffffff;
     border-radius: 10px;
-    opacity: 1;
+    opacity: 0.9;
     transform: translateY(0);
     transition: all 0.3s linear;
-    box-shadow: inset 0 2px 5px rgb(58, 58, 58);
     filter: drop-shadow(0 5px 10px rgb(58, 58, 58));
 
     p {
@@ -79,7 +78,7 @@
       content: "";
       width: 100%;
       height: 3px;
-      background-color: variables.$border-color;
+      background-color: var(--border-color);
     }
 
     button {
@@ -90,18 +89,18 @@
       -webkit-tap-highlight-color: transparent;
       outline: none;
       border-radius: 50%;
-      border: 2px solid variables.$border-color;
+      border: 2px solid var(--border-color);
       font-weight: 700;
-      color: variables.$font-color;
-      background-color: variables.$card-bg;
+      color: var(--font-color);
+      background-color: var(--card-bg);
 
       &.button--active {
-        color: variables.$card-bg;
-        background-color: variables.$font-color;
+        color: var(--card-bg);
+        background-color: var(--font-color);
       }
 
       &:hover {
-        border-color: variables.$loader;
+        border-color: var(--loader-color);
       }
 
       &:not(:last-of-type) {

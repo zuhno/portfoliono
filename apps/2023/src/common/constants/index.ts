@@ -110,6 +110,21 @@ export const googleMapDarkThemeConfig = {
   ],
 };
 
+export const googleMapLightThemeConfig = {
+  styles: [
+    {
+      featureType: "poi.business",
+      elementType: "labels.icon",
+      stylers: [{ color: "#515c6d" }],
+    },
+    {
+      featureType: "poi.business",
+      elementType: "labels.text.fill",
+      stylers: [{ color: "#9ca5b3" }],
+    },
+  ],
+};
+
 export const stats = [
   {
     id: "stat-hp",
@@ -170,5 +185,5 @@ export const careerHistory = {
   "metaverse-world":
     "Metaverse World Corp.\n\n2022.01 ~ 2022.10\n\n블록체인 생태계 개발 및 제공.\n\n기술 스택\n\n- react@17, next@12, emotion, recoil\n\n개발 내역\n\n- 마이페이지, NFT 상세페이지, 메인페이지, NFT 거래 리스트 페이지 등등\n\n- 자체 웹지갑과 ERC기반 지갑 라이브러리를 같이 사용하기위한 기능 추상화\n\n- 런처프로그램 내 웹뷰간 통신을 위한 규격 개발 및 유지보수\n\n- 홈페이지 리뉴얼 프로젝트 기초작업\n\n- i18n을 사용한 국제화 작업",
   quest3:
-    "Quest3 Corp.\n\n2022.12 ~ 2023.06\n\n블록체인게임 외주.\n\n기술 스택\n\n- react@18, next@13(pages router), chakraUI, react-query, recoil + contextAPI\n\n개발 내역\n\n- 이벤트 리스트 페이지 프론트 개발\n\n- 게임 데이터를 연동한 일일미션 페이지 프론트 개발\n\n- 메일 구독 및 메일 발송 어드민 개발\n\n- 룰렛 및 추첨 이벤트 페이지 프론트 개발\n\n- 게임 전적페이지 프론트 개발",
+    "Quest3 Corp.\n\n2022.12 ~ 2023.06\n\n블록체인게임 퍼블리싱, 게임 서포트 및 홍보용 홈페이지 제작\n\n기술 스택\n\n- react@18, next@13(pages router), chakraUI, react-query, recoil + contextAPI\n\n개발 내역\n\n- 이벤트 리스트 페이지 프론트 개발\n\n- 게임 데이터를 연동한 일일미션 페이지 프론트 개발\n\n- 메일 구독 및 메일 발송 어드민 개발\n\n- 룰렛 및 추첨 이벤트 페이지 프론트 개발\n\n- 게임 전적페이지 프론트 개발",
 };

@@ -7,7 +7,9 @@ import {
   type CompaniesCoordinate,
   companiesCoordinate,
   googleMapDarkThemeConfig,
+  googleMapLightThemeConfig,
 } from "@common/constants";
+import { ETheme, useTheme } from "@common/contexts/ThemeProvider";
 
 interface IProps {
   toHome: boolean;
@@ -24,6 +26,7 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
     lat: companiesCoordinate["nomad-coders"].lat + 0.00033,
   });
   const [zoom, setZoom] = useState(baseZoom);
+  const { theme } = useTheme();
 
   const renderMarker = useCallback(({ map, maps }) => {
     Object.entries(companiesCoordinate).forEach(([key, value]) => {
@@ -85,14 +88,25 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
 
   return (
     <div className="map-container">
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY }}
-        center={coordinate}
-        onGoogleApiLoaded={renderMarker}
-        options={googleMapDarkThemeConfig}
-        yesIWantToUseGoogleMapApiInternals
-        zoom={zoom}
-      />
+      {theme === ETheme.DARK ? (
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY }}
+          center={coordinate}
+          onGoogleApiLoaded={renderMarker}
+          options={googleMapDarkThemeConfig}
+          yesIWantToUseGoogleMapApiInternals
+          zoom={zoom}
+        />
+      ) : (
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY }}
+          center={coordinate}
+          onGoogleApiLoaded={renderMarker}
+          options={googleMapLightThemeConfig}
+          yesIWantToUseGoogleMapApiInternals
+          zoom={zoom}
+        />
+      )}
     </div>
   );
 };

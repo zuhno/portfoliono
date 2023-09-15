@@ -51,7 +51,7 @@
         width: 100%;
         height: 5px;
         border-radius: 10rem;
-        background-color: black;
+        background-color: var(--border-color);
         margin-bottom: -8px;
 
         span {
@@ -75,7 +75,7 @@
       @include mixins.card(10px, 15px 10px);
       @include mixins.rectangle-box;
 
-      background-color: variables.$border-color;
+      background-color: var(--border-color);
     }
 
     &__badge-title {
@@ -103,22 +103,22 @@
         }
 
         &--stat-str {
-          background-color: rgb(157, 49, 49);
+          background-color: var(--red);
         }
         &--stat-dex {
-          background-color: rgb(87, 147, 79);
+          background-color: var(--green);
         }
         &--stat-int {
-          background-color: rgb(65, 144, 168);
+          background-color: var(--sky);
         }
         &--stat-luk {
-          background-color: rgb(105, 64, 162);
+          background-color: var(--purple);
         }
         &--stat-atk {
-          background-color: rgb(184, 104, 71);
+          background-color: var(--orange);
         }
         &--stat-def {
-          background-color: rgb(59, 72, 166);
+          background-color: var(--blue);
         }
       }
     }
@@ -126,7 +126,7 @@
 
   .nick {
     grid-area: nick;
-    color: white;
+    color: var(--font-color);
     font-size: 3rem;
     font-weight: 700;
     padding: 10px 0 0 10px;

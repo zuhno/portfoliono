@@ -2,7 +2,7 @@ Todos:
   Project:
     2023:
       css:
-        ☐ section 03 contents + styling
+        ✘ section 03 contents + styling @cancelled(23-09-15 09:22)
         ✔ side navigation bar @done(23-09-14 18:18)
         ✔ parallel routes in nextjs @done(23-09-14 18:19)
       

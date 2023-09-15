@@ -14,7 +14,7 @@
 }
 
 @mixin card($radius: 0, $padding: 0) {
-  background-color: variables.$card-bg;
+  background-color: var(--card-bg);
   box-sizing: border-box;
 
   @if $radius != 0 {

@@ -1,9 +1,17 @@
 // Colors
-$root-bg: #0d0e12;
-$card-bg: #13161b;
-$border-color: #1c1f25;
-$font-color: #ffffff;
-$loader: #a8a8a8;
+// --dark
+$root-bg--dark: #0d0e12;
+$card-bg--dark: #13161b;
+$border-color--dark: #1c1f25;
+$font-color--dark: #ffffff;
+$loader-color--dark: #a8a8a8;
+
+// --light
+$root-bg--light: #0d0e12;
+$card-bg--light: #13161b;
+$border-color--light: #1c1f25;
+$font-color--light: #ffffff;
+$loader-color--light: #a8a8a8;
 
 // Breakpoints
 $breakpoint-mobile: 335px;

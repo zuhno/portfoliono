@@ -4,22 +4,56 @@
 @use "components";
 @use "animations";
 
+:root {
+  --aside-width: 70px;
+  @include mixins.tablet {
+    --aside-width: 30px;
+  }
+}
+
 html {
-  background-color: variables.$root-bg;
-  color: variables.$font-color;
   font-size: 16px;
+
+  body {
+    &.dark {
+      --root-bg: #0d0e12;
+      --card-bg: #13161b;
+      --border-color: #1c1f25;
+      --font-color: #ffffff;
+      --loader-color: #a8a8a8;
+      --red: rgb(157, 49, 49);
+      --green: rgb(87, 147, 79);
+      --sky: rgb(65, 144, 168);
+      --purple: rgb(105, 64, 162);
+      --orange: rgb(184, 104, 71);
+      --blue: rgb(59, 72, 166);
+    }
+
+    &.light {
+      --root-bg: #ebebeb;
+      --card-bg: #f7f7f7;
+      --border-color: #efefef;
+      --font-color: #000000;
+      --loader-color: #2b2b2b;
+      --red: rgb(192, 84, 84);
+      --green: rgb(126, 189, 118);
+      --sky: rgb(98, 177, 201);
+      --purple: rgb(157, 117, 212);
+      --orange: rgb(226, 145, 111);
+      --blue: rgb(125, 138, 236);
+    }
+
+    background-color: var(--root-bg);
+    color: var(--font-color);
+    transition:
+      background-color 0.2s,
+      color 0.2s;
+  }
 
   @include mixins.tablet {
     font-size: 14px;
   }
   @include mixins.mobile {
     font-size: 13px;
-  }
-}
-
-:root {
-  --aside-width: 70px;
-  @include mixins.tablet {
-    --aside-width: 30px;
   }
 }
