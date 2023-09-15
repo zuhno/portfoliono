@@ -102,7 +102,7 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
     <div className="map-container">
       {theme === ETheme.DARK ? (
         <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY }}
+          bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY ?? "" }}
           center={coordinate}
           onGoogleApiLoaded={renderMarker}
           options={googleMapDarkThemeConfig}
@@ -111,7 +111,7 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
         />
       ) : (
         <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY }}
+          bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY ?? "" }}
           center={coordinate}
           onGoogleApiLoaded={renderMarker}
           options={googleMapLightThemeConfig}
