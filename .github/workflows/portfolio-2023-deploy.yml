@@ -38,8 +38,6 @@ jobs:
         run: pnpm i -g vercel@latest
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN_PORTFOLIO_ALL }}
-      - name: Install Dependencies
-        run: vercel install --token=${{ secrets.VERCEL_TOKEN_PORTFOLIO_ALL }}
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN_PORTFOLIO_ALL }}
         env:
