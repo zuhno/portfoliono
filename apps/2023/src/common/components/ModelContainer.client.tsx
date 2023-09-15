@@ -15,7 +15,7 @@ const ModelContainer = ({ children, cameraNear, cameraPosition }: PropsWithChild
   return (
     <div className="model-container">
       <Suspense fallback={<Loader />}>
-        <Canvas style={{ touchAction: "manipulation" }}>
+        <Canvas className="canvas-wrapper">
           <PerspectiveCamera
             far={1000}
             fov={30} // 시야각 조정
