@@ -9,7 +9,7 @@
     "env-type": "node scripts/env-type.js",
     "dev": "pnpm env-type && dotenv -e .env.dev -- next dev",
     "prod": "pnpm env-type && dotenv -e .env.prod -- next dev",
-    "build": "pnpm env-type && dotenv -e .env.prod -- next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
