@@ -1,6 +1,7 @@
 import "@common/styles/globals.scss";
 
 import { Roboto } from "next/font/google";
+import Script from "next/script";
 
 import NavBar from "@common/components/NavBar.client";
 import ThemeProvider from "@common/contexts/ThemeProvider";
@@ -24,6 +25,17 @@ export const metadata: Metadata = {
 export default function RootLayout(props) {
   return (
     <html className={roboto.className} lang="ko">
+      {/* <!-- Google tag (gtag.js) --> */}
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-KDVK7LYPSC" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-KDVK7LYPSC');
+        `}
+      </Script>
       <body className="dark">
         <ThemeProvider>
           <NavBar />
