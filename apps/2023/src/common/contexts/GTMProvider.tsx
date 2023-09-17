@@ -26,6 +26,7 @@ const GTMProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    if (process.env.ENV === "development") return;
     TagManager.initialize({ gtmId: GTM_ID });
   }, []);
 

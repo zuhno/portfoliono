@@ -53,6 +53,7 @@ export default function RootLayout(props) {
               {props.section01}
               {props.section02}
               {props.section03}
+              {props.section04}
             </main>
           </ThemeProvider>
         </GTMProvider>

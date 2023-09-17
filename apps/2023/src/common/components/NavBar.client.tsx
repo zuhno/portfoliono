@@ -41,13 +41,17 @@ const NavBar = () => {
     const infoEl = document.getElementById("info");
     const mapEl = document.getElementById("career");
     const contactEl = document.getElementById("contact");
+    const projects1El = document.getElementById("projects1");
+    const projects2El = document.getElementById("projects2");
 
     const observer = new IntersectionObserver(handleIntersect, { threshold: 0.9 });
 
-    if (infoEl && mapEl && contactEl) {
+    if (infoEl && mapEl && contactEl && projects1El && projects2El) {
       observer.observe(infoEl);
       observer.observe(mapEl);
       observer.observe(contactEl);
+      observer.observe(projects1El);
+      observer.observe(projects2El);
     }
 
     return observer;
@@ -111,6 +115,26 @@ const NavBar = () => {
             <RiMapPinRangeFill />
           </button>
         </li>
+        <li className={clsx(activeTab === "projects1" && "active")}>
+          <button
+            data-tooltip-content="projects_1"
+            data-tooltip-id="_projects1"
+            onClick={() => toNav("projects1")}
+            type="button"
+          >
+            <MdContactSupport />
+          </button>
+        </li>
+        <li className={clsx(activeTab === "projects2" && "active")}>
+          <button
+            data-tooltip-content="projects_2"
+            data-tooltip-id="_projects2"
+            onClick={() => toNav("projects2")}
+            type="button"
+          >
+            <MdContactSupport />
+          </button>
+        </li>
         <li className={clsx(activeTab === "contact" && "active")}>
           <button
             data-tooltip-content="contact"
@@ -124,6 +148,8 @@ const NavBar = () => {
         <Tooltip id="_info" place="right" />
         <Tooltip id="_career" place="right" />
         <Tooltip id="_contact" place="right" />
+        <Tooltip id="_projects1" place="right" />
+        <Tooltip id="_projects2" place="right" />
       </ul>
 
       <div className="toggle-theme">
