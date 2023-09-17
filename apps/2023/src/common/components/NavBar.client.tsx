@@ -9,6 +9,7 @@ import { MdContactSupport } from "react-icons/md";
 import { RiMapPinRangeFill } from "react-icons/ri";
 import { Tooltip } from "react-tooltip";
 
+import { useGTM } from "@common/contexts/GTMProvider";
 import { ETheme, useTheme } from "@common/contexts/ThemeProvider";
 
 import logoIcon from "../../app/icon.png";
@@ -16,6 +17,7 @@ import logoIcon from "../../app/icon.png";
 const NavBar = () => {
   const [activeTab, setActiveTab] = useState("");
   const { theme, changeTheme } = useTheme();
+  const { gtmTheme } = useGTM();
 
   const toNav = (id: string) => {
     const mainEl = document.querySelector("main");
@@ -60,6 +62,7 @@ const NavBar = () => {
     localStorage.setItem("theme", _theme);
     document.body.setAttribute("class", _theme);
     changeTheme(_theme);
+    gtmTheme(_theme);
   };
 
   const initTheme = () => {

@@ -55,6 +55,7 @@ importers:
       '@types/node': 20.5.7
       '@types/react': ^17.0.5
       '@types/react-dom': ^17.0.5
+      '@types/react-gtm-module': ^2.0.1
       '@types/three': ^0.155.1
       axios: ^1.5.0
       clsx: ^2.0.0
@@ -64,6 +65,7 @@ importers:
       next: 13.4.19
       react: 18.2.0
       react-dom: 18.2.0
+      react-gtm-module: ^2.0.11
       react-icons: ^4.11.0
       react-tooltip: ^5.21.3
       sass: ^1.66.1
@@ -81,6 +83,7 @@ importers:
       next: 13.4.19_j3j36rgdl4c26pkb77ua4jtep4
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-gtm-module: 2.0.11
       react-icons: 4.11.0_react@18.2.0
       react-tooltip: 5.21.4_biqbaboplfbrettd7655fr4n2y
       sharp: 0.32.5
@@ -91,6 +94,7 @@ importers:
       '@types/node': 20.5.7
       '@types/react': 17.0.65
       '@types/react-dom': 17.0.20
+      '@types/react-gtm-module': 2.0.1
       '@types/three': 0.155.1
       eslint-config-custom: link:../../packages/eslint-config-custom
       sass: 1.67.0
@@ -903,6 +907,10 @@ packages:
     resolution: {integrity: sha512-4pzIjSxDueZZ90F52mU3aPoogkHIoSIDG+oQ+wQK7Cy2B9S+MvOqY0uEA/qawKz381qrEDkvpwyt8Bm31I8sbA==}
     dependencies:
       '@types/react': 17.0.65
+    dev: true
+
+  /@types/react-gtm-module/2.0.1:
+    resolution: {integrity: sha512-T/DN9gAbCYk5wJ1nxf4pSwmXz4d1iVjM++OoG+mwMfz9STMAotGjSb65gJHOS5bPvl6vLSsJnuC+y/43OQrltg==}
     dev: true
 
   /@types/react-reconciler/0.26.7:
@@ -4546,6 +4554,10 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-gtm-module/2.0.11:
+    resolution: {integrity: sha512-8gyj4TTxeP7eEyc2QKawEuQoAZdjKvMY4pgWfycGmqGByhs17fR+zEBs0JUDq4US/l+vbTl+6zvUIx27iDo/Vw==}
     dev: false
 
   /react-icons/4.11.0_react@18.2.0:

@@ -187,3 +187,5 @@ export const careerHistory = {
   quest3:
     "Quest3 Corp.\n\n2022.12 ~ 2023.06\n\n블록체인게임 퍼블리싱, 게임 서포트 및 홍보용 홈페이지 제작\n\n기술 스택\n\n- react@18, next@13(pages router), chakraUI, react-query, recoil + contextAPI\n\n개발 내역\n\n- 이벤트 리스트 페이지 프론트 개발\n\n- 게임 데이터를 연동한 일일미션 페이지 프론트 개발\n\n- 메일 구독 및 메일 발송 어드민 개발\n\n- 룰렛 및 추첨 이벤트 페이지 프론트 개발\n\n- 게임 전적페이지 프론트 개발",
 };
+
+export const GTM_ID = "GTM-TCTRHF2R";

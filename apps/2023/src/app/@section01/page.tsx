@@ -68,10 +68,10 @@ const Section01 = () => {
               </li>
               <li>
                 <div>Career</div>
-                <p>2019.12 ~ 2021.08 : Nomad Coders lecture</p>
-                <p>2021.09 ~ 2021.12 : Itamgames Corp.</p>
+                <p>2022.12 ~ 2023.06 : Quest3 Corp.</p>
                 <p>2022.01 ~ 2022.10 : Metaverse World Corp.</p>
-                <p>2022.12 ~ 2023.06 : Quest3(a.k.a Lab3) Corp.</p>
+                <p>2021.09 ~ 2021.12 : Itamgames Corp.</p>
+                <p>2019.12 ~ 2021.08 : Nomad Coders lecture</p>
               </li>
             </ul>
           </div>
