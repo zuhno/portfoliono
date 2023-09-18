@@ -8,7 +8,8 @@ import { type SyntheticEvent, useRef, useState } from "react";
 import { Tooltip } from "react-tooltip";
 
 import ModelContainer from "@common/components/ModelContainer.client";
-import { careerHistory } from "@common/constants";
+import { careerHistory, companiesCoordinate } from "@common/constants";
+import { haversine } from "@common/utils/distance";
 
 import GoogleMapContainer from "./_components/GoogleMapContainer.client";
 import RoomModel from "./_components/RoomModel.client";
@@ -29,6 +30,7 @@ const Section02 = () => {
   const [destination, setDestination] = useState(baseDestination);
   const [location, setLocation] = useState<ELocation>(ELocation.NOMAD_CODERS);
   const [isFlight, setIsFlight] = useState(false);
+  const [distance, setDistance] = useState(0);
   const [workHistoryTxt, setWorkHistoryTxt] = useState(careerHistory[ELocation.NOMAD_CODERS]);
 
   const flightTrigger = (e: SyntheticEvent<HTMLButtonElement>) => {
@@ -36,11 +38,23 @@ const Section02 = () => {
 
     if (isFlight || location === tooltipId) return;
 
+    const prevLocation = companiesCoordinate[location];
+    const nextLocation = companiesCoordinate[tooltipId];
+
+    const distanceKM = haversine({
+      lat1: prevLocation.lat,
+      lng1: prevLocation.lng,
+      lat2: nextLocation.lat,
+      lng2: nextLocation.lng,
+    });
+
+    setIsFlight(true);
+    setDistance(distanceKM);
+
     switch (tooltipId) {
       case ELocation.NOMAD_CODERS:
         setDestination({ ...baseDestination, toHome: true });
         setLocation(ELocation.NOMAD_CODERS);
-        setIsFlight(true);
         break;
       case ELocation.ITAMGAMES:
         setDestination({ ...baseDestination, toItam: true });
@@ -50,12 +64,10 @@ const Section02 = () => {
       case ELocation.METAVERSE_WORLD:
         setDestination({ ...baseDestination, toMW: true });
         setLocation(ELocation.METAVERSE_WORLD);
-        setIsFlight(true);
         break;
       case ELocation.QUEST3:
         setDestination({ ...baseDestination, toLab: true });
         setLocation(ELocation.QUEST3);
-        setIsFlight(true);
         break;
       default:
         break;
@@ -81,13 +93,19 @@ const Section02 = () => {
       <div className="section">
         <div className="section02">
           <GoogleMapContainer
+            distance={distance}
             toHome={destination.toHome}
             toItam={destination.toItam}
             toLab={destination.toLab}
             toMW={destination.toMW}
           />
           <ModelContainer cameraNear={0.1} cameraPosition={[10, 6, 10]}>
-            <RoomModel isFlight={isFlight} isInit={isInView} onArrived={onArrived} />
+            <RoomModel
+              distance={distance}
+              isFlight={isFlight}
+              isInit={isInView}
+              onArrived={onArrived}
+            />
           </ModelContainer>
 
           <div className={clsx("work-history-balloon", isFlight && "hide")}>

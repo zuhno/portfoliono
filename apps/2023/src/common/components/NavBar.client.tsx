@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { GoHomeFill } from "react-icons/go";
 import { HiSun, HiMoon } from "react-icons/hi";
+import { HiDocument } from "react-icons/hi2";
 import { MdContactSupport } from "react-icons/md";
 import { RiMapPinRangeFill } from "react-icons/ri";
 import { Tooltip } from "react-tooltip";
@@ -23,7 +24,7 @@ const NavBar = () => {
     const mainEl = document.querySelector("main");
     const targetEl = document.getElementById(id);
 
-    mainEl?.scrollTo({ top: targetEl?.offsetTop, behavior: "smooth" });
+    mainEl?.scrollTo({ top: id === "info" ? 0 : targetEl?.offsetTop, behavior: "smooth" });
   };
 
   const handleIntersect = (
@@ -32,7 +33,7 @@ const NavBar = () => {
   ) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setActiveTab(entry.target.id);
+        setActiveTab(entry.target.id.includes("project") ? "project" : entry.target.id);
       }
     });
   };
@@ -41,17 +42,17 @@ const NavBar = () => {
     const infoEl = document.getElementById("info");
     const mapEl = document.getElementById("career");
     const contactEl = document.getElementById("contact");
-    const projects1El = document.getElementById("projects1");
-    const projects2El = document.getElementById("projects2");
+    const project1El = document.getElementById("project1");
+    const project2El = document.getElementById("project2");
 
     const observer = new IntersectionObserver(handleIntersect, { threshold: 0.9 });
 
-    if (infoEl && mapEl && contactEl && projects1El && projects2El) {
+    if (infoEl && mapEl && contactEl && project1El && project2El) {
       observer.observe(infoEl);
       observer.observe(mapEl);
       observer.observe(contactEl);
-      observer.observe(projects1El);
-      observer.observe(projects2El);
+      observer.observe(project1El);
+      observer.observe(project2El);
     }
 
     return observer;
@@ -115,24 +116,14 @@ const NavBar = () => {
             <RiMapPinRangeFill />
           </button>
         </li>
-        <li className={clsx(activeTab === "projects1" && "active")}>
+        <li className={clsx(activeTab === "project" && "active")}>
           <button
-            data-tooltip-content="projects_1"
-            data-tooltip-id="_projects1"
-            onClick={() => toNav("projects1")}
+            data-tooltip-content="project"
+            data-tooltip-id="_project"
+            onClick={() => toNav("project1")}
             type="button"
           >
-            <MdContactSupport />
-          </button>
-        </li>
-        <li className={clsx(activeTab === "projects2" && "active")}>
-          <button
-            data-tooltip-content="projects_2"
-            data-tooltip-id="_projects2"
-            onClick={() => toNav("projects2")}
-            type="button"
-          >
-            <MdContactSupport />
+            <HiDocument />
           </button>
         </li>
         <li className={clsx(activeTab === "contact" && "active")}>
@@ -147,9 +138,8 @@ const NavBar = () => {
         </li>
         <Tooltip id="_info" place="right" />
         <Tooltip id="_career" place="right" />
+        <Tooltip id="_project" place="right" />
         <Tooltip id="_contact" place="right" />
-        <Tooltip id="_projects1" place="right" />
-        <Tooltip id="_projects2" place="right" />
       </ul>
 
       <div className="toggle-theme">

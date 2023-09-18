@@ -17,9 +17,10 @@ interface IProps {
   toItam: boolean;
   toMW: boolean;
   toLab: boolean;
+  distance: number;
 }
 
-const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
+const GoogleMapContainer = ({ toHome, toItam, toMW, toLab, distance }: IProps) => {
   const baseZoom = 20;
 
   const { isMobile } = useMediaQuery();
@@ -55,8 +56,8 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab }: IProps) => {
   }, []);
 
   function* zoomGenerateSequence(type: "increase" | "decrease") {
-    let limit = 8;
-    if (isMobile) limit = 9;
+    let limit = Math.max(Math.floor(distance / 3.5), 4);
+    if (isMobile) limit += 1;
     const increment = 0.1;
 
     const promises: any[] = [];

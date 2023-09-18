@@ -1,11 +1,15 @@
-import Section01 from "./_components/Section01";
-import Section02 from "./_components/Section02";
+import "./_styles/page.scss";
+
+import Project01 from "./_components/Project01";
+import Project02 from "./_components/Project02";
+import Project03 from "./_components/Project03";
 
 const Section03 = () => {
   return (
     <>
-      <Section01 />
-      <Section02 />
+      <Project01 />
+      <Project02 />
+      <Project03 />
     </>
   );
 };

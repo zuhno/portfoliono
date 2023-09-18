@@ -15,6 +15,7 @@ useGLTF.preload(RESOURCE_PATH);
 interface IProps {
   isInit: boolean;
   isFlight: boolean;
+  distance: number;
   onArrived: () => void;
 }
 
@@ -22,7 +23,7 @@ interface IProps {
  * @constant camera_position [10, 6, 10]
  * @constant camera_near 0.1
  */
-const RoomModel = ({ isInit, isFlight, onArrived }: IProps) => {
+const RoomModel = ({ isInit, isFlight, distance, onArrived }: IProps) => {
   const { scene, animations } = useGLTF(RESOURCE_PATH);
   const { actions } = useAnimateWrapper(animations, scene);
   const { isMobile } = useMediaQuery();
@@ -80,8 +81,11 @@ const RoomModel = ({ isInit, isFlight, onArrived }: IProps) => {
   };
 
   const onFlight = async () => {
+    let delay = Math.max(Math.floor(distance / 0.0039), 2000);
+    if (isMobile) delay += delay > 2000 ? 2100 : 0;
+
     takeoffAnimate();
-    await sleep(isMobile ? 8000 : 6500);
+    await sleep(delay);
     landAnimate();
   };
 

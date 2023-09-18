@@ -1,0 +1,95 @@
+@use "mixins";
+
+.section03 {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @include mixins.tablet {
+    width: 90%;
+  }
+  @include mixins.mobile {
+    width: 90%;
+    gap: 50px;
+    padding: 40px 0;
+  }
+
+  .content {
+    width: 100%;
+
+    .title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .desc {
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .info {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      gap: 30px;
+
+      @include mixins.mobile {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .image {
+        @include mixins.card(15px, 30px);
+        flex: 1;
+        max-width: 450px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        @include mixins.mobile {
+          max-width: none;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+        }
+      }
+
+      .history {
+        @include mixins.card(15px, 30px);
+        font-size: 1rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        div {
+          p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+          }
+
+          ul {
+            li {
+              line-height: 108%;
+              margin-left: 20px;
+              &:not(:last-of-type) {
+                margin-bottom: 8px;
+              }
+
+              &::marker {
+                content: "➞ ";
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
