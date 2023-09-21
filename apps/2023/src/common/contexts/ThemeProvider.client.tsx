@@ -2,12 +2,9 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
-import { useGTM } from "./GTMProvider";
+import { ETheme } from "@common/types/enum";
 
-export enum ETheme {
-  DARK = "dark",
-  LIGHT = "light",
-}
+import { useGTM } from "./GTMProvider.client";
 
 interface IContext {
   theme: ETheme;

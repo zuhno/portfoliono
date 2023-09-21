@@ -10,7 +10,8 @@ import { MdContactSupport } from "react-icons/md";
 import { RiMapPinRangeFill } from "react-icons/ri";
 import { Tooltip } from "react-tooltip";
 
-import { ETheme, useTheme } from "@common/contexts/ThemeProvider";
+import { useTheme } from "@common/contexts/ThemeProvider.client";
+import { ETheme } from "@common/types/enum";
 
 import logoIcon from "../../app/icon.png";
 

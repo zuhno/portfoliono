@@ -9,8 +9,9 @@ import {
   googleMapDarkThemeConfig,
   googleMapLightThemeConfig,
 } from "@common/constants";
-import { ETheme, useTheme } from "@common/contexts/ThemeProvider";
+import { useTheme } from "@common/contexts/ThemeProvider.client";
 import useMediaQuery from "@common/hooks/useMediaQuery";
+import { ETheme } from "@common/types/enum";
 
 interface IProps {
   toHome: boolean;
