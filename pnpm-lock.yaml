@@ -54,8 +54,9 @@ importers:
       '@types/canvas-confetti': ^1.6.1
       '@types/google-map-react': ^2.1.7
       '@types/node': 20.5.7
-      '@types/react': ^17.0.5
-      '@types/react-dom': ^17.0.5
+      '@types/nodemailer': ^6.4.11
+      '@types/react': 18.2.22
+      '@types/react-dom': ^18.2.7
       '@types/react-gtm-module': ^2.0.1
       '@types/three': ^0.155.1
       axios: ^1.5.0
@@ -65,9 +66,11 @@ importers:
       framer-motion: ^10.16.4
       google-map-react: ^2.2.1
       next: 13.5.1
+      nodemailer: ^6.9.5
       react: 18.2.0
       react-dom: 18.2.0
       react-gtm-module: ^2.0.11
+      react-hook-form: ^7.46.2
       react-icons: ^4.11.0
       react-tooltip: ^5.21.3
       sass: ^1.66.1
@@ -84,9 +87,11 @@ importers:
       framer-motion: 10.16.4_biqbaboplfbrettd7655fr4n2y
       google-map-react: 2.2.1_biqbaboplfbrettd7655fr4n2y
       next: 13.5.1_j3j36rgdl4c26pkb77ua4jtep4
+      nodemailer: 6.9.5
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-gtm-module: 2.0.11
+      react-hook-form: 7.46.2_react@18.2.0
       react-icons: 4.11.0_react@18.2.0
       react-tooltip: 5.21.4_biqbaboplfbrettd7655fr4n2y
       sharp: 0.32.5
@@ -96,8 +101,9 @@ importers:
       '@types/canvas-confetti': 1.6.1
       '@types/google-map-react': 2.1.7
       '@types/node': 20.5.7
-      '@types/react': 17.0.65
-      '@types/react-dom': 17.0.20
+      '@types/nodemailer': 6.4.11
+      '@types/react': 18.2.22
+      '@types/react-dom': 18.2.7
       '@types/react-gtm-module': 2.0.1
       '@types/three': 0.155.1
       eslint-config-custom: link:../../packages/eslint-config-custom
@@ -874,7 +880,7 @@ packages:
   /@types/google-map-react/2.1.7:
     resolution: {integrity: sha512-7pquMUU20kVwbfEV91iAWXjApSkqoODkfUwTSmJpU9Tgd+ecX+MrQnplCqrSqKrPF1VjfvyWnDEicdoSd0G5qA==}
     dependencies:
-      '@types/react': 17.0.65
+      '@types/react': 18.2.22
     dev: true
 
   /@types/hoist-non-react-statics/3.3.1:
@@ -898,7 +904,12 @@ packages:
 
   /@types/node/20.6.1:
     resolution: {integrity: sha512-4LcJvuXQlv4lTHnxwyHQZ3uR9Zw2j7m1C9DfuwoTFQQP4Pmu04O6IfLYgMmHoOCt0nosItLLZAH+sOrRE0Bo8g==}
-    dev: false
+
+  /@types/nodemailer/6.4.11:
+    resolution: {integrity: sha512-Ld2c0frwpGT4VseuoeboCXQ7UJIkK3X7Lx/4YsZEiUHtHsthWAOCYtf6PAiLhMtfwV0cWJRabLBS3+LD8x6Nrw==}
+    dependencies:
+      '@types/node': 20.6.1
+    dev: true
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -911,10 +922,10 @@ packages:
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
 
-  /@types/react-dom/17.0.20:
-    resolution: {integrity: sha512-4pzIjSxDueZZ90F52mU3aPoogkHIoSIDG+oQ+wQK7Cy2B9S+MvOqY0uEA/qawKz381qrEDkvpwyt8Bm31I8sbA==}
+  /@types/react-dom/18.2.7:
+    resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
     dependencies:
-      '@types/react': 17.0.65
+      '@types/react': 18.2.22
     dev: true
 
   /@types/react-gtm-module/2.0.1:
@@ -924,13 +935,13 @@ packages:
   /@types/react-reconciler/0.26.7:
     resolution: {integrity: sha512-mBDYl8x+oyPX/VBb3E638N0B7xG+SPk/EAMcVPeexqus/5aTpTphQi0curhhshOqRrc9t6OPoJfEUkbymse/lQ==}
     dependencies:
-      '@types/react': 17.0.65
+      '@types/react': 18.2.22
     dev: false
 
   /@types/react-reconciler/0.28.4:
     resolution: {integrity: sha512-Xd55E2aLI9Q/ikDQEmfRzIwYJs4oO0h9ZHA3FZDakzt1WR6JMZcpqtCZlF97I72KVjoY4rHXU5TfvkRDOyr/rg==}
     dependencies:
-      '@types/react': 17.0.65
+      '@types/react': 18.2.22
     dev: false
 
   /@types/react/17.0.14:
@@ -941,8 +952,8 @@ packages:
       csstype: 3.1.2
     dev: true
 
-  /@types/react/17.0.65:
-    resolution: {integrity: sha512-oxur785xZYHvnI7TRS61dXbkIhDPnGfsXKv0cNXR/0ml4SipRIFpSMzA7HMEfOywFwJ5AOnPrXYTEiTRUQeGlQ==}
+  /@types/react/18.2.22:
+    resolution: {integrity: sha512-60fLTOLqzarLED2O3UQImc/lsNRgG0jE/a1mPW9KjMemY0LMITWEsbS4VvZ4p6rorEHd5YKxxmMKSDK505GHpA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -4063,6 +4074,11 @@ packages:
     resolution: {integrity: sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==}
     dev: true
 
+  /nodemailer/6.9.5:
+    resolution: {integrity: sha512-/dmdWo62XjumuLc5+AYQZeiRj+PRR8y8qKtFCOyuOl1k/hckZd8durUUHs/ucKx6/8kN+wFxqKJlQ/LK/qR5FA==}
+    engines: {node: '>=6.0.0'}
+    dev: false
+
   /normalize-package-data/2.5.0:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
     dependencies:
@@ -4570,6 +4586,15 @@ packages:
 
   /react-gtm-module/2.0.11:
     resolution: {integrity: sha512-8gyj4TTxeP7eEyc2QKawEuQoAZdjKvMY4pgWfycGmqGByhs17fR+zEBs0JUDq4US/l+vbTl+6zvUIx27iDo/Vw==}
+    dev: false
+
+  /react-hook-form/7.46.2_react@18.2.0:
+    resolution: {integrity: sha512-x1DWmHQchV7x2Rq9l99M/cQHC8JGchAnw9Z0uTz5KrPa0bTl/Inm1NR7ceOARfIrkNuQNAhuSuZPYa6k7QYn3Q==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-icons/4.11.0_react@18.2.0:
