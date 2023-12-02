@@ -22,7 +22,7 @@ export const sendAction = async (data: IFormData) => {
         pass: process.env.NODEMAILER_USER_PASSWORD,
       },
     },
-    { from: `Portfolio 2023 <${process.env.NODEMAILER_USER_EMAIL}>`, to: "silluat11@gmail.com" }
+    { from: `Portfolio 2023 <${process.env.NODEMAILER_USER_EMAIL}>`, to: "zuhno11@gmail.com" }
   );
 
   return new Promise((r, j) => {
