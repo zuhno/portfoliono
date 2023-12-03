@@ -2,7 +2,10 @@ name: Portfolio 2019 - Production Deployment
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_2019 }}
-on: workflow_dispatch
+on:
+  push:
+    branches: [ main ]
+   workflow_dispatch:
 
 jobs:
   Deploy-Production:
