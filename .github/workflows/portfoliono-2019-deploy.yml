@@ -1,8 +1,9 @@
-name: Portfolio 2023 - Production Deployment
+name: Portfoliono 2019 - Production Deployment
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_2023 }}
-on: workflow_dispatch
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_2019 }}
+on:
+  workflow_dispatch:
 
 jobs:
   Deploy-Production:
@@ -15,12 +16,12 @@ jobs:
         uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
-          version: 8.7.6
+          version: 7.22.0
           run_install: false
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 18.12.0
+          node-version: 16.18.1
           cache: "pnpm"
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -42,10 +43,5 @@ jobs:
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN_PORTFOLIO_ALL }}
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN_PORTFOLIO_ALL }}
-        env:
-          NEXT_PUBLIC_GOOGLE_API_KEY: ${{ secrets.PORTFOLIO_GOOGLE_API_KEY }}
-          NEXT_PUBLIC_ENV: production
-          NODEMAILER_USER_EMAIL: ${{ secrets.NODEMAILER_USER_EMAIL }}
-          NODEMAILER_USER_PASSWORD: ${{ secrets.NODEMAILER_USER_PASSWORD }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prod --prebuilt --token=${{ secrets.VERCEL_TOKEN_PORTFOLIO_ALL }}
