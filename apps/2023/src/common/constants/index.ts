@@ -2,6 +2,7 @@ export const companiesCoordinate = {
   "nomad-coders": { lat: 37.693291, lng: 126.765383 },
   "metaverse-world": { lat: 37.49938619005661, lng: 127.03382608876949 },
   quest3: { lat: 37.499493264043, lng: 127.02900264553 },
+  "the-vplanet": { lat: 37.5535569605072, lng: 126.92748883625045 },
 };
 
 export type CompaniesCoordinate = (typeof companiesCoordinate)["quest3"];
@@ -177,6 +178,7 @@ export const stats = [
 ];
 
 export const careerHistory = {
+  "the-vplanet": "The VPlanet Corp. (2024.01 ~ current)\n\n근무중😊",
   quest3:
     "Quest3 Corp. (2022.12 ~ 2023.06)\n\n어드민, 게임연동 일일 이벤트, 추첨형식 이벤트, zealy 서비스와 연동한 미션 완료 자동화 등의 작업을 진행하였습니다.\n\n프로젝트중 백엔드에도 참여한 경험이 http 통신에 대한 생각을 넓히는데 도움이 많이 되었습니다.",
   "metaverse-world":

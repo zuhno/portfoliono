@@ -81,8 +81,15 @@ const RoomModel = ({ isInit, isFlight, distance, onArrived }: IProps) => {
   };
 
   const onFlight = async () => {
-    let delay = Math.max(Math.floor(distance / 0.0039), 2000);
-    if (isMobile) delay += delay > 2000 ? 2100 : 500;
+    let min = 2000;
+    let delayAddMin = 500;
+    if (distance > 10) {
+      min = 4500;
+      delayAddMin = 1500;
+    }
+
+    let delay = Math.max(Math.floor(distance / 0.0039), min);
+    if (isMobile) delay += delay > min ? 2000 : delayAddMin;
 
     takeoffAnimate();
     await sleep(delay);

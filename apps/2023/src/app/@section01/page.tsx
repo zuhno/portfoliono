@@ -44,7 +44,7 @@ const Section01 = () => {
               ))}
             </div>
           </div>
-          <div className="nick">Cuttleman</div>
+          <div className="nick">Zuhno</div>
           <div className="info">
             <ul>
               <li>
@@ -62,20 +62,12 @@ const Section01 = () => {
                 <p>5. 좌우명은 &#39;오늘은 몰라도 내일은 알자&#39; 입니다.</p>
               </li>
               <li>
-                <div>Why Cuttleman?</div>
-                <pre>- cuttlefish + man</pre>
-                <p>
-                  display mean: 환경의 색에 잘 녹아드는 오징어처럼 어떤 조직이던지 그 색에 맞춰
-                  녹아드는 사람이 되겠습니다.
-                </p>
-                <p>real mean: 유튜브에서 본 갑오징어가 너무 귀여워서 본인의 캐릭터로 만듬.</p>
-              </li>
-              <li>
                 <div>Hobby</div>
                 <p>웹툰, 복싱, 꼬꼬무 (개발)공부</p>
               </li>
               <li>
                 <div>Career</div>
+                <p>2024.01 ~ current&nbsp;&nbsp; : The VPlanet Corp.</p>
                 <p>2022.12 ~ 2023.06 : Quest3 Corp.</p>
                 <p>2021.09 ~ 2022.11 : Metaverse World Corp.</p>
                 <p>2019.12 ~ 2021.08 : Nomad Coders lecture</p>
