@@ -56,7 +56,7 @@ const Section04 = () => {
             <div className="title">Contact</div>
             <ul>
               <li>
-                <Link href="https://github.com/cuttleman" target="_blank">
+                <Link href="https://github.com/zuhno" target="_blank">
                   <BiLogoGithub />
                 </Link>
               </li>

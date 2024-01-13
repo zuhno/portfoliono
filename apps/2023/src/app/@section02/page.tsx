@@ -16,7 +16,7 @@ import { haversine } from "@common/utils/distance";
 import GoogleMapContainer from "./_components/GoogleMapContainer.client";
 import RoomModel from "./_components/RoomModel.client";
 
-const baseDestination = { toHome: false, toLab: false, toMW: false };
+const baseDestination = { toHome: false, toLab: false, toMW: false, toVPlanet: false };
 
 const Section02 = () => {
   const ref = useRef(null);
@@ -24,10 +24,10 @@ const Section02 = () => {
   const isInView = useInView(ref, { once: true });
   const { gtmFlying } = useGTM();
   const [destination, setDestination] = useState(baseDestination);
-  const [location, setLocation] = useState<ELocation>(ELocation.QUEST3);
+  const [location, setLocation] = useState<ELocation>(ELocation.THE_VPLANET);
   const [isFlight, setIsFlight] = useState(false);
   const [distance, setDistance] = useState(0);
-  const [workHistoryTxt, setWorkHistoryTxt] = useState(careerHistory[ELocation.QUEST3]);
+  const [workHistoryTxt, setWorkHistoryTxt] = useState(careerHistory[ELocation.THE_VPLANET]);
 
   const flightTrigger = (e: SyntheticEvent<HTMLButtonElement>) => {
     const { tooltipId } = (e.target as HTMLButtonElement).dataset as { tooltipId: ELocation };
@@ -61,6 +61,11 @@ const Section02 = () => {
         setDestination({ ...baseDestination, toLab: true });
         setLocation(ELocation.QUEST3);
         break;
+      case ELocation.THE_VPLANET:
+        setDestination({ ...baseDestination, toVPlanet: true });
+        setLocation(ELocation.THE_VPLANET);
+        break;
+
       default:
         break;
     }
@@ -89,6 +94,7 @@ const Section02 = () => {
             toHome={destination.toHome}
             toLab={destination.toLab}
             toMW={destination.toMW}
+            toVPlanet={destination.toVPlanet}
           />
           <ModelContainer cameraNear={0.1} cameraPosition={[10, 6, 10]}>
             <RoomModel
@@ -105,8 +111,18 @@ const Section02 = () => {
 
           <div className="career-btns">
             <button
+              className={location === ELocation.THE_VPLANET ? "button--active" : ""}
+              data-tooltip-content="flight to the vplanet"
+              data-tooltip-id={ELocation.THE_VPLANET}
+              onClick={flightTrigger}
+              type="button"
+            >
+              {`The\nVPlanet`}
+            </button>
+            <Tooltip id={ELocation.THE_VPLANET} />
+            <button
               className={location === ELocation.QUEST3 ? "button--active" : ""}
-              data-tooltip-content="flight quest3"
+              data-tooltip-content="flight to quest3"
               data-tooltip-id={ELocation.QUEST3}
               onClick={flightTrigger}
               type="button"

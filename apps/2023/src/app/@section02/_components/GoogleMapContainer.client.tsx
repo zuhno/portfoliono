@@ -17,10 +17,11 @@ interface IProps {
   toHome: boolean;
   toMW: boolean;
   toLab: boolean;
+  toVPlanet: boolean;
   distance: number;
 }
 
-const GoogleMapContainer = ({ toHome, toMW, toLab, distance }: IProps) => {
+const GoogleMapContainer = ({ toHome, toMW, toLab, toVPlanet, distance }: IProps) => {
   const baseZoom = 20;
 
   const { isMobile } = useMediaQuery();
@@ -36,7 +37,7 @@ const GoogleMapContainer = ({ toHome, toMW, toLab, distance }: IProps) => {
     []
   );
   const [coordinate, setCoordinate] = useState<CompaniesCoordinate>(
-    companiesCenterCoordinate.quest3
+    companiesCenterCoordinate["the-vplanet"]
   );
   const [zoom, setZoom] = useState(baseZoom);
   const { theme } = useTheme();
@@ -56,7 +57,10 @@ const GoogleMapContainer = ({ toHome, toMW, toLab, distance }: IProps) => {
   }, []);
 
   function* zoomGenerateSequence(type: "increase" | "decrease") {
-    let limit = Math.max(Math.floor(distance / 3.5), 4.5);
+    let min = 4.5;
+    if (distance > 10) min = 7;
+
+    let limit = Math.max(Math.floor(distance / 3.5), min);
     if (isMobile) limit += 1;
     const increment = 0.1;
 
@@ -94,12 +98,13 @@ const GoogleMapContainer = ({ toHome, toMW, toLab, distance }: IProps) => {
 
   useEffect(() => {
     let param: CompaniesCoordinate | null = null;
+    if (toVPlanet) param = companiesCenterCoordinate["the-vplanet"];
     if (toLab) param = companiesCenterCoordinate.quest3;
     if (toMW) param = companiesCenterCoordinate["metaverse-world"];
     if (toHome) param = companiesCenterCoordinate["nomad-coders"];
 
     if (param) void onFlight(param);
-  }, [toHome, toMW, toLab]);
+  }, [toHome, toMW, toLab, toVPlanet]);
 
   return (
     <div className="map-container">
