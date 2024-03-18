@@ -5,7 +5,25 @@ const Project03 = () => {
     <div className="section-container" id="project3">
       <div className="section">
         <div className="section03">
-          {/* Bridge */}
+          {/* MW: Presale */}
+          <Content
+            description="블록체인게임 캐릭터 코스튬 사전판매 프론트 개발."
+            mainImage="/image/metaverse_world2.webp"
+            scopes={[
+              "퍼블리셔분과 협업하여 특정 UI 퍼블리싱",
+              "블록체인과 rpc 통신하여 구매/교환 기능 구현",
+              "구매한 코스튬박스 뽑기(가챠)시 연출 기획 및 개발",
+            ]}
+            specs={[
+              "Framework: next@12, react@17",
+              "State Management: recoil",
+              "Style: emotion, sass",
+              "CI/CD: github-actions, serverless-component(AWS)",
+            ]}
+            title="Metaverse World: Presale"
+          />
+
+          {/* itamgames: Bridge */}
           <Content
             description="블록체인 네트워크간 자사 거버넌스 토큰을 교환해주는 브릿지 서비스 리뉴얼."
             mainImage="/image/itamgames1.webp"
@@ -21,15 +39,6 @@ const Project03 = () => {
               "CI/CD: github-actions, AWS CodePipeline",
             ]}
             title="Metaverse World: Token Bridge"
-          />
-
-          {/* Staking */}
-          <Content
-            description="책 홍보용 정적 웹사이트 개발. 1차 외주에서 이벤트 기간내 누적 사용자수 50만 달성후 2차 외주 계약."
-            mainImage="/image/outsourcing.webp"
-            scopes={["UI 퍼블리싱", "캐러셀 슬라이드 바닐라코드 개발", "동적 공유이미지", "GA"]}
-            specs={["Frontend: javascript, scss, gulp, pug", "Backend: firebase"]}
-            title="Outsourcing: 관계유형테스트 / 방구석 골든벨"
           />
         </div>
       </div>
