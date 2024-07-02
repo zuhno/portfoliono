@@ -15,9 +15,7 @@ const Project01 = () => {
               "쿠키를 이용한 서브도메인간 로그인 유지 기능 추가",
             ]}
             specs={[
-              "Frontend: next@13(pages router), react@18, react-query, contextAPI, zustand",
-              "Style: styled-components",
-              "CI/CD: github-actions, cloudflare pages",
+              "next@13(pages router), react@18, react-query, contextAPI, zustand, styled-components, github-actions, cloudflare pages",
             ]}
             title="The VPlanet: SNS Upload"
           />
@@ -33,9 +31,7 @@ const Project01 = () => {
             ]}
             specs={[
               "Backend: nodejs",
-              "Frontend: next@13(pages router), react@17, react-query, contextAPI, chakraUI",
-              "Style: emotion",
-              "CI/CD: github-actions, vercel",
+              "Frontend: next@13(pages router), react@17, react-query, contextAPI, chakraUI, emotion, github-actions, vercel",
             ]}
             title="Quest3: Mad Matic"
           />
