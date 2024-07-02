@@ -16,9 +16,7 @@ const Project02 = () => {
             ]}
             specs={[
               "Backend: koa.js, dynamodb",
-              "Frontend: next@13(pages router), react@17, react-query, contextAPI, chakraUI",
-              "Style: emotion",
-              "CI/CD: github-actions, vercel",
+              "Frontend: next@13(pages router), react@17, react-query, contextAPI, chakraUI, emotion, github-actions, vercel",
             ]}
             title="Quest3: Daily Check-in"
           />
@@ -33,10 +31,7 @@ const Project02 = () => {
               "일일 보상 claim 기능 구현",
             ]}
             specs={[
-              "Framework: next@12, react@17",
-              "State Management: recoil",
-              "Style: emotion",
-              "CI/CD: github-actions, serverless-component(AWS)",
+              "next@12, react@17, recoil, emotion, github-actions, serverless-component(AWS)",
             ]}
             title="Metaverse World: Daily Check-in"
           />
