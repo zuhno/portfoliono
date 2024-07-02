@@ -15,10 +15,7 @@ const Project03 = () => {
               "구매한 코스튬박스 뽑기(가챠)시 연출 기획 및 개발",
             ]}
             specs={[
-              "Framework: next@12, react@17",
-              "State Management: recoil",
-              "Style: emotion, sass",
-              "CI/CD: github-actions, serverless-component(AWS)",
+              "next@12, react@17, recoil, emotion, sass, github-actions, serverless-component(AWS)",
             ]}
             title="Metaverse World: Presale"
           />
@@ -33,10 +30,7 @@ const Project03 = () => {
               "대기상태인 교환이력들 Infinity scroll에서 Pagination 적용된 리스트로 개선",
             ]}
             specs={[
-              "Library: react@16",
-              "State Management: contextAPI",
-              "Style: sass, styled-components",
-              "CI/CD: github-actions, AWS CodePipeline",
+              "react@16, contextAPI, sass, styled-components, github-actions, AWS CodePipeline",
             ]}
             title="Metaverse World: Token Bridge"
           />
