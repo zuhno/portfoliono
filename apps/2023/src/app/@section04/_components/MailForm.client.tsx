@@ -46,7 +46,7 @@ const MailForm = ({ closeMailForm }: IProps) => {
       />
       {errors.subject ? <span>This field is required</span> : null}
 
-      <label htmlFor="email">Email</label>
+      <label htmlFor="email">Your Email</label>
       <input
         id="email"
         type="email"
