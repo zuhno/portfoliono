@@ -12,17 +12,17 @@ jobs:
     steps:
       - name: Change working directory
         uses: actions/checkout@v3
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.12.0
-          cache: "pnpm"
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
           version: 8.7.6
           run_install: false
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.0
+          cache: "pnpm"
       - name: Install Dependency
         run: pnpm install --frozen-lockfile
       - name: Install Vercel CLI
