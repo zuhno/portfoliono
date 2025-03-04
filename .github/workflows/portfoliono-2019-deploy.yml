@@ -27,7 +27,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install Dependency
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Install Vercel CLI
         run: pnpm i -g vercel@latest
