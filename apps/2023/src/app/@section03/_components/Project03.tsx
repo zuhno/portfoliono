@@ -33,10 +33,7 @@ const Project03 = () => {
               "구매한 코스튬박스 뽑기(가챠)시 연출 기획 및 개발",
             ]}
             specs={[
-              "Framework: next@12, react@17",
-              "State Management: recoil",
-              "Style: emotion, sass",
-              "CI/CD: github-actions, serverless-component(AWS)",
+              "next@12, react@17, recoil, emotion, sass, github-actions, serverless-component(AWS)",
             ]}
             title="Metaverse World: Presale"
           />

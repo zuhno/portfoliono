@@ -34,9 +34,7 @@ const Project02 = () => {
             ]}
             specs={[
               "Backend: koa.js, dynamodb",
-              "Frontend: next@13(pages router), react@17, react-query, contextAPI, chakraUI",
-              "Style: emotion",
-              "CI/CD: github-actions, vercel",
+              "Frontend: next@13(pages router), react@17, react-query, contextAPI, chakraUI, emotion, github-actions, vercel",
             ]}
             title="Quest3: Daily Check-in"
           />

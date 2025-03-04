@@ -5,7 +5,7 @@ const Project01 = () => {
     <div className="section-container" id="project1">
       <div className="section">
         <div className="section03">
-          {/* VPlate */}
+          {/* The VPlanet: Shorts Factory */}
           <Content
             description="롱폼을 기반으로한 숏폼 영상 제작 편집기 개발."
             mainImage="/image/vplate_2.webp"
@@ -23,7 +23,7 @@ const Project01 = () => {
             title="The VPlanet: Shorts Factory"
           />
 
-          {/* VPlate */}
+          {/* The VPlanet: Vplate */}
           <Content
             description="자동으로 SNS에 마케팅 영상을 AI로 생성하여 업로드하는 서비스 프론트 개발."
             mainImage="/image/vplate_1.webp"
@@ -33,9 +33,7 @@ const Project01 = () => {
               "쿠키를 이용한 서브도메인간 로그인 유지 기능 추가",
             ]}
             specs={[
-              "Frontend: next@13(pages router), react@18, react-query, contextAPI, zustand",
-              "Style: styled-components",
-              "CI/CD: github-actions, cloudflare pages",
+              "next@13(pages router), react@18, react-query, contextAPI, zustand, styled-components, github-actions, cloudflare pages",
             ]}
             title="The VPlanet: SNS Upload"
           />
