@@ -59,15 +59,15 @@ const Section01 = () => {
                 <p>
                   4. 디자인시스템, 마이크로 프론트앤드, E2E 테스트를 실무에서 경험하길 희망합니다.
                 </p>
-                <p>5. 좌우명은 &#39;오늘은 몰라도 내일은 알자&#39; 입니다.</p>
+                <p>5. 좌우명은 &#39;내일은 더 나은 개발자가 되자&#39; 입니다.</p>
               </li>
               <li>
                 <div>Hobby</div>
-                <p>웹툰, 복싱, 꼬꼬무 (개발)공부</p>
+                <p>웹툰, 꼬꼬무 (개발)공부</p>
               </li>
               <li>
                 <div>Career</div>
-                <p>2024.01 ~ current&nbsp;&nbsp; : The VPlanet Corp.</p>
+                <p>2024.01 ~ 2025.02 : The VPlanet Corp.</p>
                 <p>2022.12 ~ 2023.06 : Quest3 Corp.</p>
                 <p>2021.09 ~ 2022.11 : Metaverse World Corp.</p>
                 <p>2019.12 ~ 2021.08 : Nomad Coders lecture</p>

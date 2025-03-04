@@ -2,7 +2,7 @@ export const companiesCoordinate = {
   "nomad-coders": { lat: 37.693291, lng: 126.765383 },
   "metaverse-world": { lat: 37.49938619005661, lng: 127.03382608876949 },
   quest3: { lat: 37.499493264043, lng: 127.02900264553 },
-  "the-vplanet": { lat: 37.5535569605072, lng: 126.92748883625045 },
+  "the-vplanet": { lat: 37.55386130014155, lng: 126.92430277953615 },
 };
 
 export type CompaniesCoordinate = (typeof companiesCoordinate)["quest3"];
@@ -178,7 +178,8 @@ export const stats = [
 ];
 
 export const careerHistory = {
-  "the-vplanet": "The VPlanet Corp. (2024.01 ~ current)\n\n근무중😊",
+  "the-vplanet":
+    "The VPlanet Corp. (2024.01 ~ 2025.02)\n\n쇼츠, 릴스 영상 SNS 예약 업로드 및 직접 업로드 기능 개발, 레거시 프로젝트 CI/CD 구축, 레거시 프로젝트 유지보수 및 빌드 퍼포먼스 개선, 신규 프로젝트 '쇼츠팩토리' 편집실 코어 개발 등 진행하였습니다.\n\n레거시 프로젝트를 다룰 때의 마음가짐을 배웠고 AI 발전으로 앞으로 나아가야할 방향에 대해 많은 고민을 하게되었습니다.",
   quest3:
     "Quest3 Corp. (2022.12 ~ 2023.06)\n\n어드민, 게임연동 일일 이벤트, 추첨형식 이벤트, zealy 서비스와 연동한 미션 완료 자동화 등의 작업을 진행하였습니다.\n\n프로젝트중 백엔드에도 참여한 경험이 http 통신에 대한 생각을 넓히는데 도움이 많이 되었습니다.",
   "metaverse-world":
