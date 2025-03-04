@@ -5,6 +5,24 @@ const Project02 = () => {
     <div className="section-container" id="project2">
       <div className="section">
         <div className="section03">
+          {/* Quest3: Mad Matic */}
+          <Content
+            description="네이티브 토큰을 보상으로 주는 일일 추첨 이벤트 페이지 프론트 개발."
+            mainImage="/image/quest3_1.webp"
+            scopes={[
+              "UI 퍼블리싱",
+              "티켓 발급, 추첨결과에 따른 프론트 기능 개발",
+              "특정시간에 추첨되는 시스템 개발",
+            ]}
+            specs={[
+              "Backend: nodejs",
+              "Frontend: next@13(pages router), react@17, react-query, contextAPI, chakraUI",
+              "Style: emotion",
+              "CI/CD: github-actions, vercel",
+            ]}
+            title="Quest3: Mad Matic"
+          />
+
           {/* Quest3: Daily Check-in */}
           <Content
             description="게임내 특정 활동을 통한 일일 미션 이벤트 페이지 개발."
@@ -21,24 +39,6 @@ const Project02 = () => {
               "CI/CD: github-actions, vercel",
             ]}
             title="Quest3: Daily Check-in"
-          />
-
-          {/* MW: Daily Check-in */}
-          <Content
-            description="블록체인게임 오픈전 게임 아이템을 일일 보상으로 주는 이벤트 페이지 프론트 개발."
-            mainImage="/image/metaverse_world1.webp"
-            scopes={[
-              "UI 퍼블리싱",
-              "메인 홈페이지에 보여질 UI 및 런처프로그램에서 띄워질 webview 화면 개발",
-              "일일 보상 claim 기능 구현",
-            ]}
-            specs={[
-              "Framework: next@12, react@17",
-              "State Management: recoil",
-              "Style: emotion",
-              "CI/CD: github-actions, serverless-component(AWS)",
-            ]}
-            title="Metaverse World: Daily Check-in"
           />
         </div>
       </div>
