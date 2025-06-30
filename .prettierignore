@@ -10,3 +10,4 @@
 **/*.svg
 **/*.png
 _todos
+**/.npmrc
